@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("ul.nav li").hover(function(){
+		$(this).css("background", "url(./images/nav_right.gif) no-repeat top right");
+		$(this).children().css("color", "#ffffff");
+		$(this).children().css("background", "url(./images/nav_left.gif) no-repeat top left");
+		},
+		function(){
+		$(this).css("background", "none");
+		$(this).children().css("color", "#37383E");
+		$(this).children().css("background", "none");	
+		});
+		showing2();
+		setTipSize();
+	}
+	);
+function showing2(){
+	var index=0;
+	var imgTimer;
+	var length=$(".num li").length;
+	$(".num li").mouseover(function(){		
+		index=$(".num li").index(this);
+		showImg2(index);
+		}).eq(3).addClass("on");
+	$(".imagecontainer").hover(function(){
+		    clearInterval(imgTimer);
+			index++;
+		}, function(){
+			imgTimer=setInterval(function(){
+				showImg2(index);
+				index++;
+				if(index>=length){index=0;}
+			},7000);
+		}).trigger("mouseleave");
+	}
+function showImg2(index){
+	var length=$(".num li").length;
+	if(index>=length){index=0;}
+	$(".slider li img").stop(true,false).animate({opacity:"0"},1000,function(){
+		$(".slider li img").attr("src","images/show/"+(index+1)+".jpg").animate({opacity:"1"},2000);
+		});
+	$(".num li").removeClass("on").eq(index).addClass("on");
+	}
+function showing(){
+	var index=0;
+	var imgTimer;
+	var length=$(".num>li").length;
+	$(".num li").mouseover(function(){
+		index=$(".num li").index(this);
+		showImg(index);
+		}).eq(0).mouseover();
+	$(".imagecontainer").hover(function(){
+		clearInterval(imgTimer);
+		},function(){
+			imgTimer=setInterval(function(){
+				showImg(index)
+				index++;
+				if(index==length){index=0;}
+			},3000);
+		}).trigger("mouseleave");
+	}
+function showImg(index){	
+	var imgHeight=$(".imagecontainer").height();
+	
+	$(".slider").stop(true,false).animate({top : -imgHeight*index},1000);
+	$(".num li").removeClass("on").eq(index).addClass("on");
+	}
+function randomSize(){
+	return Math.random()*(28-14)+14;
+	}
+function setTipSize(){
+	var length=$("#tip a").length;
+	for(var i=0;i<length;i++){
+		$("#tip a").eq(i).css("font-size",randomSize()+"px");
+		}
+	}
+</script>
+<title>my log</title>
+</head>
+
+<body>
+<div id="container">
+<div id="header">
+<h1><span>My</span>blog</h1>
+<p>博主：张若君,华南农业大学计算机</p>
+<ul class="nav">
+<li><a href="#">首页</a></li>
+<li><a href="#">博文目录</a></li>
+<li><a href="#">我的相册</a></li>
+<li><a href="#">留言板</a></li>
+<li><a href="#">关于我</a></li>
+</ul>
+<div id="search">
+<input class="stext" type="text" size="23" name="searchtext" />
+<input class="sbutton" type="button" value=" " />
+</div>
+<div id="imageshow">
+   <div class="imagecontainer">
+   <ul class="slider">
+         <li><img src="images/show/4.jpg" /></li>
+        
+   </ul>
+   </div>
+   <ul class="num">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+   </ul>
+</div>
+</div> 
+<div id="maxcontent">
+   <div id="album">
+       <h3>相册</h3> 
+       <ul>
+           <li><img src="images/11.jpg" /></li>
+           <li><img src="images/22.jpg" /></li>
+           <li><img src="images/33.jpg" /></li>
+           <li><img src="images/44.jpg" /></li>
+       </ul>
+       <p><a>more >></a></p>
+   </div>
+   <div id="somelink">
+       <h3>标签</h3>
+       <div id="tip">
+             <a href="#">JavaScript</a>
+             <a href="#">Html</a>
+             <a href="#">CSS</a>
+             <a href="#">Jquery</a>
+             <a href="#">C++</a>
+             <a href="#">.Net</a>
+             <a href="#">Linux</a>
+             <a href="#">Code</a>
+             <a href="#">Programing</a>
+             <a href="#">Unix</a>
+             <a href="#">SQL</a>
+             <a href="#">Perl</a>
+             <a href="#">JSP</a>
+             <a href="#">Ruby</a>
+             <a href="#">Google</a>
+             <a href="#">AJAX</a>
+             <a href="#">IE</a>
+             <a href="#">FLASH</a>
+             <a href="#">XML</a>
+             <a href="#">Database</a>
+             <a href="#">OOP</a>
+             <a href="#">程序员</a>
+             <a href="#">language</a>
+             <a href="#">Android</a>
+             <a href="#">Performance</a>
+             <a href="#">Web</a>
+             <a href="#">HTML5</a>
+             <a href="#">CSS3</a>
+             <a href="#">Windows</a>
+       </div>
+   </div>
+</div>
+<div id="mincontent">
+    <h3>最新文章</h3>
+    <ul>
+        <li><a href="#">神奇的CSS形状</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习 的学习 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+        <li><a href="#">由一个问题到 Resin ClassLoader 的学习</a></li>
+         <li><a href="#">神奇的CSS形状</a></li>
+    </ul>
+</div>
+<div id="footer">
+     <ul>
+         <li><a href="#">Home</a></li>
+         <li><a href="#">About us</a></li>
+         <li><a href="#">About HTML</a></li>
+         <li><a href="#">About CSS</a></li>
+         <li><a href="#">About JavaScript</a></li>
+         <li class="last"><a href="#">Contact us</a></li>
+     </ul>
+</div>
+
+
+</div>
+</body>
+</html>
