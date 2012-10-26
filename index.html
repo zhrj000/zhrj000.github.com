@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<<<<<<< HEAD
 		<title>MY BLOG</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="styles/main.css" />
@@ -64,5 +65,257 @@
 			<div class="footer">Copyright © 2012 <a href="http://zhrj000.github.com/">zhrj000.github.com</a> All rights reserved.</div>
 		</div>
 		<script type="text/javascript" src="scripts/clock.js"></script></script>>
+=======
+		<meta charset="utf-8" />
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-family: "Microsoft YaHei",Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#000000;
+}
+ol,ul{
+	list-style:none;
+}
+.back{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 200px;
+	height: 50px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 50px;
+	font-weight: bold;
+	background-color: #2B2C30;
+	cursor: pointer;
+	box-shadow: 0 2px 8px #131316;
+	-moz-transform: rotate(-45deg) translate(-60px,-20px);
+	-webkit-transform: rotate(-45deg) translate(-60px,-20px);
+}
+.back a{
+	display: block;
+	width: 200px;
+	height: 50px;
+	color:#ffffff;
+}
+.article{
+	width: 500px;
+	padding:40px 0 60px 500px;
+}
+.article a{
+	color:#49B4F2;
+	text-decoration: none;
+}
+.article a:hover{
+	color:red;
+	text-decoration: underline;
+}
+.article span{
+	display: block;
+}
+.article p{
+	padding:10px 0;
+}
+.article p.posttime{
+	text-align: right;
+	font-size: 12px;
+	padding: 2px 0;
+}
+#BenjaminClcok{
+	position: fixed;
+	top:200px;
+	left: 130px;
+	width: 220px;
+	height: 220px;
+	border-radius: 110px;
+	font-size: 16px;
+	font-weight: bold;
+	color:#ffffff;
+	background-color: #37383E;
+}
+#BenjaminClcok:before{
+	content: '';
+	position: absolute;
+	top:20px;
+	left: 20px;
+	width: 180px;
+	height: 180px;
+	border-radius: 90px;
+	background-color: #2B2C30;
+}
+#BenjaminClcok:after{
+	content: '';
+	position: absolute;
+	top:102px;
+	left: 102px;
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	background-color: #37383E;
+	box-shadow: 0 0 4px #b4b4b4 inset;
+}
+.clockName{
+	position: absolute;
+	top:120px;
+	left:53px;
+	color:#ffffff;
+	opacity: 0.3;
+}
+.graduation li,.pointer li{
+	display: inline-block;
+}
+.graduation li:nth-child(1){
+	-moz-transform: translate(102px,0);
+	-webkit-transform: translate(102px,0);
+}
+.graduation li:nth-child(2){
+	-moz-transform: translate(127px,10px) rotate(30deg) ;
+	-webkit-transform: translate(127px,10px) rotate(30deg) ;
+}
+.graduation li:nth-child(3){
+	-moz-transform: translate(145px,45px) rotate(60deg);
+	-webkit-transform: translate(145px,45px) rotate(60deg);
+}
+.graduation li:nth-child(4){
+	-moz-transform: translate(142px,98px) rotate(90deg);
+	-webkit-transform: translate(142px,98px) rotate(90deg);
+}
+.graduation li:nth-child(5){
+	-moz-transform: translate(105px,151px) rotate(120deg);
+	-webkit-transform: translate(105px,151px) rotate(120deg);
+}
+.graduation li:nth-child(6){
+	-moz-transform: translate(45px,187px) rotate(150deg);
+	-webkit-transform: translate(45px,187px) rotate(150deg);
+}
+.graduation li:nth-child(7){
+	-moz-transform: translate(-22px,200px) rotate(180deg);
+	-webkit-transform: translate(-22px,200px) rotate(180deg);
+}
+.graduation li:nth-child(8){
+	-moz-transform:translate(-93px,186px) rotate(210deg);
+	-webkit-transform:translate(-93px,186px) rotate(210deg);
+}
+.graduation li:nth-child(9){
+	-moz-transform:translate(-150px,150px) rotate(240deg);
+	-webkit-transform:translate(-150px,150px) rotate(240deg);
+}
+.graduation li:nth-child(10){
+	-moz-transform:translate(-185px,100px) rotate(270deg);
+	-webkit-transform:translate(-185px,100px) rotate(270deg);
+}
+.graduation li:nth-child(11){
+	-moz-transform:translate(15px,30px) rotate(300deg);
+	-webkit-transform:translate(15px,30px) rotate(300deg);
+}
+.graduation li:nth-child(12){
+	-moz-transform:translate(30px,-10px) rotate(330deg);
+	-webkit-transform:translate(30px,-10px) rotate(330deg);
+}
+.pointer li{
+	-moz-transform-origin: left center;
+	-webkit-transform-origin: left center;
+}
+.hour{
+	position: absolute;
+	top:107px;
+	left:110px;
+	height: 6px;
+	width: 60px;
+	background-color: red;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+.minute{
+	position: absolute;
+	top:108px;
+	left:110px;
+	height: 4px;
+	width: 70px;
+	background-color: #49B4F2;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+.second{
+	position: absolute;
+	top:109px;
+	left:110px;
+	height: 2px;
+	width: 80px;
+	background-color: #ffffff;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+</style>
+		<script type="text/javascript">
+			function clockRun(){
+			var pointer=document.getElementsByClassName("pointer")[0];
+			var hour=pointer.getElementsByClassName("hour")[0];
+			var second=pointer.getElementsByClassName("second")[0];
+			var minute=pointer.getElementsByClassName("minute")[0];
+			var hours=-new Date().getHours()*360/12-new Date().getMinutes()*360/720-new Date().getSeconds()*360/(12*60*60)-90;
+			var minutes=-new Date().getMinutes()*360/60-new Date().getSeconds()*360/3600-90;
+			var seconds=-new Date().getSeconds()*360/60-90;
+			hour.style.cssText="-moz-transform:rotate("+hours+"deg);-webkit-transform:rotate("+hours+"deg);"
+			minute.style.cssText="-moz-transform:rotate("+minutes+"deg);-webkit-transform:rotate("+minutes+"deg);"
+			second.style.cssText="-moz-transform:rotate("+seconds+"deg);-webkit-transform:rotate("+seconds+"deg);"
+			setTimeout('clockRun()',1000);
+		}
+		window.onload=clockRun;
+		</script>
+		<title>clock</title>
+	</head>
+	<body>
+		<div class="back"><a href="index.html">返回首页</a></div>
+		<div id="BenjaminClcok">
+			<p class="clockName">BenjaminClock</p>
+			<ul class="graduation">
+				<li>Ⅻ</li>
+				<li>Ⅰ</li>
+				<li>Ⅱ</li>
+				<li>Ⅲ</li>
+				<li>Ⅳ</li>
+				<li>Ⅴ</li>
+				<li>Ⅵ</li>
+				<li>Ⅶ</li>
+				<li>Ⅷ</li>
+				<li>Ⅸ</li>
+				<li>Ⅹ</li>
+				<li>Ⅺ</li>
+				
+			</ul>
+			<ul class="pointer">
+				<li class="hour"></li>
+				<li class="minute"></li>
+				<li class="second"></li>
+			</ul>
+
+		</div>
+		<div class="article">
+			<h1>本杰明钟(BenjaminClock)</h1>
+			<p class="posttime">
+				——发表于2012/9/1
+			</p>
+			<p>昨天看了电影<a href="http://movie.douban.com/subject/1485260/" title="去豆瓣看看介绍">《返老还童》</a></p>
+			<p>影片讲述一个人，出生时是一个老头，几十年后越活越年轻，最终又变成一个婴儿在襁褓中死去这样一个奇异的故事。</p>
+			<p>失去孩子的老钟匠做了一个倒走的钟</p>
+			<p>
+				<span>"It's running backwards!"</span>
+				<span>"I made it that way.</span>
+				<span>So that perhaps the boys that we lost in the war might stand and come home again.</span>
+				<span>Home to farm, work, have children.</span>
+				<span>To live long,full lives."</span>
+			</p>
+			<p>倒走的钟，和返老还童的本杰明···</p>
+			<p>所以，就想到写一个倒走的钟（←左边）——BenjaminClcok，献给片中本杰明的扮演者，超帅的布拉德·皮特
+				(╯▽╰)</p>
+				<p><img src="http://www.gaoqing.tv/movie/UploadSoftPic/201101/2011012122515291.png" /></p>
+			<p>钟的代码比较简单，倒走也只是将指针的旋转度在正走的基础上改为负数···</p>
+		</div>
+>>>>>>> 4b11a1839bdf9296362aa5cc90b9ca076698ebc2
 	</body>
 </html>
