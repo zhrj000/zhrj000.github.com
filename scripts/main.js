@@ -67,7 +67,7 @@ Mixiu.Demo=(function(){
 			demoDiv.style.height=Mixiu.StyleUtil.getViewport().vpHeight+"px";
 
 			Mixiu.EventUtil.addHandler(demo,"click",function(event){
-				demoDiv.style.paddingTop=window.scrollY+"px";
+				demoDiv.style.paddingTop=(window.scrollY||document.documentElement.scrollTop)+"px";
 				demoDiv.style.display="block";
 			});
 			Mixiu.EventUtil.addHandler(close,"click",function(event){
