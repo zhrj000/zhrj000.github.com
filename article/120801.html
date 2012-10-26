@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MY BLOG</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../styles/main.css" />
+		<link rel="stylesheet" type="text/css" href="../styles/demo.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<div class="primary">
+					<div class="header">
+						<h1><a href="index.html"><span>ZHRJ</span>博客</a></h1>
+						<p>博客园：<a href="http://www.cnblogs.com/zhrj000/" title="去看看">http://www.cnblogs.com/zhrj000/</a></p>
+						<ul class="nav">
+							<li><a href="../index.html">首页</a></li>
+							<li><a href="../rebuild.html">网页重构</a></li>
+							<li><a href="../aboutjs.html">javascript</a></li>
+							<li><a href="../demo.html">demo</a></li>
+							<li><a href="../aboutme.html">关于我</a></li>
+						</ul>
+					</div>
+					<div class="sider">
+						<div class="sider-box blog-box">
+							<h4>关注的博客</h4>
+							<ul>
+								<li><a href="http://www.zhangxinxu.com/wordpress/">张鑫旭博客</a></li>
+								<li><a href="http://www.cssforest.org/blog/">CSS森林</a></li>
+								<li><a href="http://coolshell.cn/">酷壳</a></li>
+								<li><a href="http://www.qianduan.net/">前端观察</a></li>
+							</ul>
+						</div>
+						<div class="sider-box paper-box">
+							<h4>收藏的文章</h4>
+							<ul>
+								<li><a href="https://github.com/lifesinger/lifesinger.github.com/issues/105">最牛逼的 HTML 和 CSS 代码的背后</a></li>
+								<li><a href="http://www.zhangxinxu.com/wordpress/2012/07/bottleneck-css-study/">说说CSS学习中的瓶颈</a></li>
+							</ul>
+						</div>
+						<div class="sider-box me-box">
+							<h4>联系我</h4>
+							<ul>
+								<li>博客园：<a href="http://www.cnblogs.com/zhrj000/">http://www.cnblogs.com/zhrj000/</a></li>
+								<li>新浪微博：<a href="http://weibo.com/inthecorner">http://weibo.com/inthecorner</a></li>
+								<li>网易邮箱：<a href="http://www.cnblogs.com/zhrj000/">zhrj000@163.com</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="content">
+					<div class="article">
+						<h2>css3 loading 鸡蛋</h2>
+						<p class="posttime">——发表于2012/9/1 </p>
+						<p>用css3做的一个鸡蛋破壳的效果</p>
+						<p>运用css3一些比较基础的属性，用radius属性把鸡蛋画出来，然后变形啊动画啊就用如transform，animation等属性</p>
+						<p>因为css3本身很强大，所以鸡蛋不想要用图片，但是又要表现出鸡蛋裂开的锯齿边，后来想了想就用了比较笨的方法，用div块挡住，裂开的鸡蛋其实是上下两个鸡蛋组成的，中间用块遮罩住</p>
+						<p>用的技术比较简单，比较繁琐的是一些遮罩的定位而已</p>
+						<p>做这个鸡蛋的初衷是给同学的游戏设计一个loading,游戏地址：<a href="http://wifeteam.sinaapp.com/">http://wifeteam.sinaapp.com/</a></p>
+						<p>查看鸡蛋的  &gt;&gt;  <a href="#clock" class="demo">demo</a></p>
+					</div>
+
+
+					<div class="demoDiv">
+						<div class="demoDivInner">
+							<div class="close">×</div>
+							<div class="article">
+								<h2>css3 loading 鸡蛋</h2>
+								<p>demo实际应用地址（是一个游戏，只能用chrome看⊙﹏⊙b）：<a href="http://wifeteam.sinaapp.com/">http://wifeteam.sinaapp.com/</a></p>
+							</div>
+							<div class="loading animation">
+								<div id="egg_first"class="egg">
+									<i></i>
+									<i></i>	
+								</div>
+								<div class="cover"></div>
+								<div class="cover2"></div>
+								<div id="egg_second" class="egg">
+									<i></i>
+									<i></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">Copyright © 2012 <a href="http://zhrj000.github.com/">zhrj000.github.com</a> All rights reserved.</div>
+		</div>
+		<script type="text/javascript" src="../scripts/main.js"></script>
+	</body>
+</html>
