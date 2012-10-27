@@ -63,11 +63,10 @@ Mixiu.Demo=(function(){
 	
 	return{
 		init:function(){
-			demoDiv.style.width=Mixiu.StyleUtil.getViewport().vpWidth+"px";
-			demoDiv.style.height=Mixiu.StyleUtil.getViewport().vpHeight+"px";
-
 			Mixiu.EventUtil.addHandler(demo,"click",function(event){
 				demoDiv.style.paddingTop=(window.scrollY||document.documentElement.scrollTop)+"px";
+				demoDiv.style.width=Mixiu.StyleUtil.getDocsize().docWidth+"px";
+				demoDiv.style.height=(Mixiu.StyleUtil.getDocsize().docHeight-(window.scrollY||document.documentElement.scrollTop))+"px";
 				demoDiv.style.display="block";
 			});
 			Mixiu.EventUtil.addHandler(close,"click",function(event){
