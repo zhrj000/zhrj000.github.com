@@ -1,10 +1,10 @@
 (function(){
 	var timeId=setTimeout(function (){
 		
-			var pointer=document.getElementsByClassName("pointer")[0],
-				hour=pointer.getElementsByClassName("hour")[0],
-				second=pointer.getElementsByClassName("second")[0],
-				minute=pointer.getElementsByClassName("minute")[0],
+			var pointer=Mixiu.getElementsByClassName(document,"pointer")[0],
+				hour=Mixiu.getElementsByClassName(pointer,"hour")[0],
+				second=Mixiu.getElementsByClassName(pointer,"second")[0],
+				minute=Mixiu.getElementsByClassName(pointer,"minute")[0],
 			hours=-new Date().getHours()*360/12-new Date().getMinutes()*360/720-new Date().getSeconds()*360/(12*60*60)-90,
 			minutes=-new Date().getMinutes()*360/60-new Date().getSeconds()*360/3600-90,
 			seconds=-new Date().getSeconds()*360/60-90;
