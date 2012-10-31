@@ -1,16 +1,25 @@
 
 /*demo's css*/
+body{
+	position: relative;
+}
 .demo{
 	font-size: 2em;
+	cursor: pointer;
+	color: #49B4F2;
+}
+.demo:hover{
+	text-decoration: underline;
+	color: red;
 }
 .demoDiv{
+	font-size: 1.4em;
 	position: absolute;
 	top:0;
 	left: 0;
 	display: none;
 	background:rgba(0,0,0,0.3);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4B000000
-		,endColorstr=#4B000000);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4B000000,endColorstr=#4B000000);
 	width:100%;
 
 }
@@ -557,4 +566,46 @@
 	width: 50px;
 	height:50px;
 	background-color: #262626;
+}
+
+
+/*photoPlayer's css*/
+#photoPlayer{
+	position: relative;
+	height:400px;
+	margin-top: 20px;
+	background-color: #2B2C30;
+}
+.photomain{
+	text-align: center;
+}
+.photobottom{
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.4);
+	width: 800px;
+	height: 100px;
+	text-align: center;
+}
+.photolist{
+	position: relative;
+	width: 480px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.item{
+	padding:10px;
+	width: 100px;
+	height: 80px;
+	float: left;
+	cursor: pointer;
+}
+.frame{
+	position: absolute;
+	top:0;
+	left: 0;
+	border: 4px solid #fff;
+	width: 110px;
+	height: 92px;
+	cursor: pointer;
 }

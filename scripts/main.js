@@ -55,11 +55,30 @@ Mixiu.StyleUtil={
 		};
 	}
 }
-
+Mixiu.getElementsByClassName=function(node,classname){
+	if(node.getElementsByClassName){
+		return node.getElementsByClassName(classname);
+	}else{
+		var result=[],
+			elements=node.getElementsByTagName("*"),
+			classnames=[],
+			i,
+			j;
+		for(i=0;i<elements.length;i++){
+			classnames=elements[i].className.split(' ');
+			for(j=0;j<classnames.length;j++){
+				if(classname===classnames[j]){
+					result[result.length]=elements[i];
+				}
+			}
+		}
+	return result;
+	}
+}
 Mixiu.Demo=(function(){
-	var demo=document.getElementsByClassName("demo")[0],
-		close=document.getElementsByClassName("close")[0],
-		demoDiv=document.getElementsByClassName("demoDiv")[0];
+	var demo=Mixiu.getElementsByClassName(document,"demo")[0],
+		close=Mixiu.getElementsByClassName(document,"close")[0],
+		demoDiv=Mixiu.getElementsByClassName(document,"demoDiv")[0];
 	
 	return{
 		init:function(){
