@@ -53,40 +53,93 @@ Mixiu.StyleUtil={
 			docWidth:Math.max(document.documentElement.scrollWidth,document.documentElement.clientWidth),
 			docHeight:Math.max(document.documentElement.scrollHeight,document.documentElement.clientHeight)
 		};
+	},
+	getCssValue:function(node,key){
+		if(node.currentStyle){
+			return node.currentStyle[key];/*for ie*/
+		}else{
+			return document.defaultView.getComputedStyle(node,null)[key]; /*others except ie*/
+		}
 	}
 }
-Mixiu.getElementsByClassName=function(node,classname){
-	if(node.getElementsByClassName){
-		return node.getElementsByClassName(classname);
-	}else{
-		var result=[],
-			elements=node.getElementsByTagName("*"),
-			classnames=[],
-			i,
-			j;
-		for(i=0;i<elements.length;i++){
-			classnames=elements[i].className.split(' ');
-			for(j=0;j<classnames.length;j++){
-				if(classname===classnames[j]){
-					result[result.length]=elements[i];
+Mixiu.ClassUtil={
+	getElementsByClassName:function(node,classname){
+		if(node.getElementsByClassName){
+			return node.getElementsByClassName(classname);
+		}else{
+			var result=[],
+				elements=node.getElementsByTagName("*"),
+				classnames=[],
+				i,
+				j;
+			for(i=0;i<elements.length;i++){
+				classnames=elements[i].className.split(' ');
+				for(j=0;j<classnames.length;j++){
+					if(classname===classnames[j]){
+						result[result.length]=elements[i];
+					}
 				}
 			}
 		}
-	return result;
+		return result;
+	},
+	hasClass:function(node,classname){
+		var classnames=node.className.split(' '),
+			j;
+		for(j=0;j<classnames.length;j++){
+			if(classname===classnames[j]){
+				return true;
+			}
+		}
+		return false;
+	},
+	addClass:function(node,classname){
+		var classnames=node.className.split(' '),
+			j;
+		for(j=0;j<classnames.length;j++){
+			if(classname===classnames[j]){
+				break;
+			}
+		}
+		if(j===classnames.length){
+			node.className+=(" "+classname);
+		}
+	},
+	removeClass:function(node,classname){
+		var classnames=node.className.split(' '),
+			j;
+		for(j=0;j<classnames.length;j++){
+			if(classname===classnames[j]){
+				if(0===j){
+					node.className=node.className.toString().replace(classname,'');
+				}else{
+					node.className=node.className.toString().replace(' '+classname,'');
+				}
+				
+			}
+		}
 	}
 }
+
 Mixiu.Demo=(function(){
-	var demo=Mixiu.getElementsByClassName(document,"demo")[0],
-		close=Mixiu.getElementsByClassName(document,"close")[0],
-		demoDiv=Mixiu.getElementsByClassName(document,"demoDiv")[0];
+	var demo=Mixiu.ClassUtil.getElementsByClassName(document,"demo")[0],
+		close=Mixiu.ClassUtil.getElementsByClassName(document,"close")[0],
+		demoDiv=Mixiu.ClassUtil.getElementsByClassName(document,"demoDiv")[0],
+		demoDivInner=Mixiu.ClassUtil.getElementsByClassName(demoDiv,"demoDivInner")[0],
+		minHeight;
 	
 	return{
 		init:function(){
 			Mixiu.EventUtil.addHandler(demo,"click",function(event){
+				minHeight=(Mixiu.StyleUtil.getDocsize().docHeight-(window.scrollY||document.documentElement.scrollTop))+"px";
 				demoDiv.style.paddingTop=(window.scrollY||document.documentElement.scrollTop)+"px";
 				demoDiv.style.width=Mixiu.StyleUtil.getDocsize().docWidth+"px";
-				demoDiv.style.height=(Mixiu.StyleUtil.getDocsize().docHeight-(window.scrollY||document.documentElement.scrollTop))+"px";
+				demoDivInner.style.minHeight=minHeight;
+				demoDivInner.style.height=minHeight;
+				demoDiv.style.minHeight=minHeight;
+				demoDiv.style.height=minHeight;
 				demoDiv.style.display="block";
+				
 			});
 			Mixiu.EventUtil.addHandler(close,"click",function(event){
 				demoDiv.style.display="none";

@@ -17,6 +17,7 @@ body{
 	position: absolute;
 	top:0;
 	left: 0;
+	height: auto !important;
 	display: none;
 	background:rgba(0,0,0,0.3);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4B000000,endColorstr=#4B000000);
@@ -29,6 +30,8 @@ body{
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	padding-bottom: 40px;
+	height: auto !important;
 }
 .demoDivInner .article{
 	padding-top: 0;
@@ -583,6 +586,7 @@ body{
 	position: absolute;
 	bottom: 0;
 	background-color: rgba(0,0,0,0.4);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4B000000,endColorstr=#4B000000);
 	width: 800px;
 	height: 100px;
 	text-align: center;
@@ -609,3 +613,130 @@ body{
 	height: 92px;
 	cursor: pointer;
 }
+
+
+/*Cardgame's css*/
+.cardgame{
+	margin-top: 10px;
+	text-align: center;
+	background: #a46740 url(../images/bg.jpg);
+}
+#game{
+	border-radius: 10px;
+	border: 1px solid #666;
+	background: #232 url(../images/table.jpg);
+	width: 500px;
+	height: 460px;
+	margin-left: auto;
+	margin-right: auto;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align: center;
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align: center;
+}
+#cards{
+	position: relative;
+	width: 380px;
+	height: 400px;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align: center;
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align: center;
+}
+.card{
+	position: absolute;
+	-webkit-perspective: 600;
+	-moz-perspective: 600;
+	width: 80px;
+	height: 120px;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	cursor: pointer;
+}
+.face{
+	border-radius: 10px;
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition-property: opacity,transform,box-shadow;
+	-moz-transition-property: opacity,transform,box-shadow;
+	-webkit-transition-duration: .3s;
+	-moz-transition-duration: .3s;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+}
+.front{
+	background: #999 url(../images/deck.png) 0 -480px;
+	z-index: 10;
+}
+.back{
+	background: #efefef url(../images/deck.png);
+	-webkit-transform: rotate3d(0,1,0,-180deg);
+	-moz-transform: rotate3d(0,1,0,-180deg);
+	z-index: 8;
+}
+.card:hover .face,.card-flipped .face{
+	-webkit-box-shadow: 0 0 10px #aaa;
+	-moz-box-shadow: 0 0 10px #aaa;
+}
+.card-flipped .front{
+	-webkit-transform:rotate3d(0,1,0,180deg);
+	-moz-transform:rotate3d(0,1,0,180deg);
+	z-index: 8;
+}
+.card-flipped .back{
+	-webkit-transform:rotate3d(0,1,0,0deg);
+	-moz-transform:rotate3d(0,1,0,0deg);
+	z-index: 10;
+}
+.card-removed{
+	opacity: 0;
+}
+.cardAJ{
+	background-position: -800px 0;
+}
+.cardAQ{
+	background-position: -880px 0;
+}
+.cardAK{
+	background-position: -960px 0;
+}
+.cardBJ{
+	background-position: -800px -120px;
+}
+.cardBQ{
+	background-position: -880px -120px;
+}
+.cardBK{
+	background-position: -960px -120px;
+}
+.cardCJ{
+	background-position: -800px -240px;
+}
+.cardCQ{
+	background-position: -880px -240px;
+}
+.cardCK{
+	background-position: -960px -240px;
+}
+.cardDJ{
+	background-position: -800px -360px;
+}
+.cardDQ{
+	background-position: -880px -360px;
+}
+.cardDK{
+	background-position: -960px -360px;
+}
+header,footer{
+	padding-top:10px;
+	padding-bottom: 10px;
+	color: white;
+}
+

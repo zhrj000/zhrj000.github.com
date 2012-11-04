@@ -129,7 +129,7 @@ Mixiu.PhotoPlayer=(function(){
 			speed=speed_*1000;
 			curIndex=0;
 			frameleft=0;
-			frame=Mixiu.getElementsByClassName(player,"frame")[0];
+			frame=Mixiu.ClassUtil.getElementsByClassName(player,"frame")[0];
 			for(var i=0;i<images.length;i++){
 				if(images[i].className.indexOf("focus")!==-1){
 					focus=images[i];
