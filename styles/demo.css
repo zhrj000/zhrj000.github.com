@@ -591,6 +591,9 @@ body{
 	height: 100px;
 	text-align: center;
 }
+.focus{
+	height:400px;	
+}
 .photolist{
 	position: relative;
 	width: 480px;
