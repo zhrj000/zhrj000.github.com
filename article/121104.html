@@ -50,56 +50,29 @@
 				</div>
 				<div class="content">
 					<div class="article">
-						<h2>纸牌记忆配对</h2>
-						<p class="posttime">——发表于2012/11/01 </p>
-						<p>在做纸牌配对的时候，遇到这样一个问题</p>
-						<p>get到两个拥有相同类名的节点数组，然后逐个remove掉它们的类名，remove第一个的时候，正常，remove掉第二个的时候，出错了，找不到元素,于是在两个remove之间加入了两行代码，如下：</p>
-<pre>var flippedcard=Mixiu.ClassUtil.getElementsByClassName(cards,"card-flipped");
-console.log(flippedcard.length);
-Mixiu.ClassUtil.removeClass(flippedcard[0],"card-flipped");
-console.log(flippedcard.length);
-Mixiu.ClassUtil.removeClass(flippedcard[1],"card-flipped");
+						<h2>minHeight与自适应高</h2>
+						<p class="posttime">——发表于2012/11/04 </p>
+						<p>关于给一个块定义最小高度minHeight并让他自适应高度，一般我们都是这样做的，如：</p>
+<pre>{
+    height:auto !important;
+    minheight:400px;
+    height:400px;
+}
 </pre>
-						<p>输出结果如下：</p>
-<pre>2
-1 
-Uncaught TypeError: Cannot read property 'className' of undefined 
-</pre>
-						<p>找到原因：remove掉类名之后flippedcard的长度就会减一，所以还是要从后往前remove的好，不过具体是为什么呢？难道flippedcard每次调用都会重新去调用赋值语句？</p>
-						
-						<p>查看纸牌记忆配对的  &gt;&gt;  <span class="demo">demo</span></p>
+						<p>因为IE6不支持minheight属性，所以这段代码可以做到兼容IE6，我们都知道IE6的height属性其实相当于minheight的效果，而且height:400px;这行代码会覆盖掉height:auto !important;这行代码。为什么呢？我以前听到的解释是IE6不能识别!important。其实这是错误的。</p>
+						<p>1）关于IE6与!important</p>
+						<p>IE6是在某种情况下不能识别!important，但某种情况下又能。</p>
+						<p>比如，在样式表里面这样写</p>
+						<p>{color:red !important;color:blue;}</p>
+						<p>这样!important在IE6下是无效的，结果会是blue；</p>
+						<p>但是如果在样式表里写</p>
+						<p>{color:red!important;}</p>
+						<p>然后在其他地方，总之不要在同个{}里面出现的话，那么！important起到了他的作用了，优先级最高。</p>
+						<p>所以，IE6并不是不能识别!important，而是他识别的点有点怪异。</p>						
 					</div>
 				</div>
 			</div>
 			<div class="footer">Copyright © 2012 <a href="http://zhrj000.github.com/">zhrj000.github.com</a> All rights reserved.</div>
 		</div>
-		<div class="demoDiv">
-			<div class="demoDivInner">
-				<div class="close">×</div>
-				<div class="article">
-					<h2>纸牌记忆配对</h2>
-					<p>博客园地址：<a href="">http://www.cnblogs.com/zhrj000/</a></p>
-				</div>
-				<div class="cardgame">
-					<header>
-						<h1>Getting Familiar with CSS3 Transiton</h1>
-					</header>
-					<section id="game">
-						<div id="cards">
-							<div class="card">
-								<div class="face front"></div>
-								<div class="face back"></div>
-							</div>
-							<div class="c"></div><div class="c"></div>
-						</div>
-					</section>
-					<footer>
-						<p>This is an example of transitioning cards.</p>
-					</footer>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript" src="../scripts/main.js"></script>
-		<script type="text/javascript" src="../scripts/cardgame.js"></script>
 	</body>
 </html>
