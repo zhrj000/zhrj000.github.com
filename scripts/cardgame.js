@@ -1,24 +1,14 @@
-(function(){
-	var matchingGame={};
-	matchingGame.deck=[
-		'cardAK','cardAK',
-		'cardAQ','cardAQ',
-		'cardAJ','cardAJ',
-		'cardBK','cardBK',
-		'cardBQ','cardBQ',
-		'cardBJ','cardBJ',
-	];
-	matchingGame.deck.sort(shuffle);
+Mixiu.MatchingGame=(function(){
+	var deck=[
+			'cardAK','cardAK',
+			'cardAQ','cardAQ',
+			'cardAJ','cardAJ',
+			'cardBK','cardBK',
+			'cardBQ','cardBQ',
+			'cardBJ','cardBJ',
+		],
+		cards=document.getElementById("cards");
 
-	var cards=document.getElementById("cards");
-		Mixiu.EventUtil.addHandler(cards,"click",function(event){
-			var event=Mixiu.EventUtil.getEvent(event),
-				target=Mixiu.EventUtil.getTarget(event),
-				card=target.parentNode;
-			if(Mixiu.ClassUtil.hasClass(card,"card")){
-				selectCard(card);
-			}	
-		});
 	function createCards(){
 		var card=Mixiu.ClassUtil.getElementsByClassName(cards,"card")[0],
 			newcard,
@@ -31,14 +21,14 @@
 			cards.appendChild(newcard);
 			newcard.style.left=(parseInt(cardwidth)+20)*(i%4)+"px";
 			newcard.style.top=(parseInt(cardheight)+20)*Math.floor(i/4)+"px";
-			pattern=matchingGame.deck.pop();
+			pattern=deck.pop();
 			back=Mixiu.ClassUtil.getElementsByClassName(newcard,"back")[0];
 			Mixiu.ClassUtil.addClass(back,pattern);
 			newcard.setAttribute("data-pattern",pattern);
 		}
 		card.style.left=0;
 		card.style.top=0;
-		pattern=matchingGame.deck.pop();
+		pattern=deck.pop();
 		back=Mixiu.ClassUtil.getElementsByClassName(card,"back")[0];
 		Mixiu.ClassUtil.addClass(back,pattern);
 		card.setAttribute("data-pattern",pattern);
@@ -76,6 +66,21 @@
 			anotherpattern=flippedcard[1].getAttribute("data-pattern");
 		return(pattern===anotherpattern);
 	}
-	createCards();
+
+	return{
+		init:function(){
+			deck.sort(shuffle);
+			Mixiu.EventUtil.addHandler(cards,"click",function(event){
+				var event=Mixiu.EventUtil.getEvent(event),
+					target=Mixiu.EventUtil.getTarget(event),
+					card=target.parentNode;
+				if(Mixiu.ClassUtil.hasClass(card,"card")){
+					selectCard(card);
+				}	
+			});
+			createCards();
+		}
+	}
 
 })();
+Mixiu.MatchingGame.init();
