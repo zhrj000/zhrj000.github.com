@@ -158,4 +158,4 @@ Mixiu.PhotoPlayer=(function(){
 		}		
 	}
 })();
-Mixiu.PhotoPlayer.play("photoPlayer",4,4);
+Mixiu.PhotoPlayer.play("photoPlayer",4,3);
