@@ -744,3 +744,311 @@ header,footer{
 	color: white;
 }
 
+/*dollplay'css*/
+.dollplay{
+	position: relative;
+	margin-top: 20px;
+	height: 700px;
+	background-color: rgba(0,0,0,1);
+	-webkit-animation: Dawn 20s linear alternate;
+	-moz-animation: Dawn 20s linear alternate;
+	background-color: rgba(0,0,0,0); 
+}
+.cloud{
+	position: absolute;
+	top:100px;
+	left: 60px;
+	width: 140px;
+	height: 80px;
+	border: 1px solid #b4b4b4;
+	border-radius: 80px 30px;
+	background-color: #ffffff;
+	box-shadow: 0 0 30px #b4b4b4 inset;
+}
+
+.sun{
+	position: absolute;
+	top:120px;
+	left: 100px;
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	background-color: red;
+	box-shadow: 0 0 80px #DAA520;
+	-webkit-animation: sunMove 20s linear alternate;
+	-moz-animation: sunMove 20s linear alternate;
+	top:20px;
+}
+.sunnyDoll{
+	position: absolute;
+	left:450px;
+	top:350px;
+	box-shadow:0 0 80px #DAA520;
+	z-index:600;
+}
+.dollHead{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 96px;
+	height: 100px;
+	border: solid 1px #b4b4b4;
+	border-radius: 50px 50px 50px 50px/55px 55px 55px 55px;
+	background-color: #fefefe;
+	box-shadow: -2px -2px 10px #b4b4b4 inset;
+	z-index: 999;
+}
+		
+		.dollEye{
+			position: absolute;
+			top: 20px;
+			width: 5px;
+			height: 10px;
+			border-radius: 5px 5px 4px 4px/5px 5px 5px 5px;
+			background-color: #000000;
+			-webkit-animation: dollWink 3s linear infinite alternate;
+			-moz-animation: dollWink 3s linear infinite alternate;
+		}
+		.leftEye{	
+			left: 33px;			
+		}
+		.leftEye:after{
+			content: '';
+			width: 2px;
+			height: 2px;
+			background-color: #ffffff;
+			border-radius: 1px;
+			position: absolute;
+			top:2px;
+			right: 2px;
+		}
+		.rightEye{
+			left:60px;
+		}
+		.rightEye:after{
+			content: '';
+			width: 2px;
+			height: 2px;
+			background-color: #ffffff;
+			border-radius: 1px;
+			position: absolute;
+			top:2px;
+			right: 2px
+		}
+		.mouse{
+			position: absolute;
+			top:75px;
+			left:45px;
+			width: 7px;
+			height: 4px;
+			border-radius: 1px;
+			background-color: #3a3b36;
+		}
+		.mouse:after{
+			content: '';
+			width: 4px;
+			height: 3px;
+			position: absolute;
+			top:0;
+			left: 2px;
+			background-color: #000000;
+		}
+		.dollBody{
+			background-color: #ffffff;
+			position: absolute;
+			top:100px;
+			left:0px;
+			height:100px;
+			width: 100px;
+			border: 1px solid #b4b4b4;
+			border-radius: 10px 20px;
+			box-shadow: 0px 0px 5px #b4b4b4 inset;
+			-webkit-transform: rotate(45deg);
+			-webkit-animation: dollFly 3s linear infinite alternate;
+			-moz-transform: rotate(45deg);
+			-moz-animation: dollFly 3s linear infinite alternate;
+		}
+		.dollTail{
+			position: absolute;
+			height:120px;
+			width: 120px;
+			border-radius: 10px 110px;
+			border:1px solid #b4b4b4;
+			background-color: #ffffff;
+			box-shadow: 0px 0px 10px #b4b4b4 inset;
+			z-index: 888;
+		}
+		.dollShadow{
+			position: absolute;
+			top:350px;
+			left:880px;
+			-webkit-transform:skew(-60deg) ;
+			-webkit-animation: showShadow 80s linear alternate;
+			-moz-transform:skew(-60deg) ;
+			-moz-animation: showShadow 80s linear alternate;
+			opacity:1;
+			z-index:599;
+			top:350px;
+			left:880px;
+			-webkit-transform:skew(-60deg) ;
+			-moz-transform:skew(-60deg) ;	
+		}
+		.dollShadow .dollHead{
+			background-color:#b4b4b4;
+			border:none;
+		}
+		.dollShadow .dollBody{
+			background-color:#b4b4b4;
+			border:none;
+		}
+		.dollShadow .dollTail{
+			background-color:#b4b4b4;
+			border:none;
+		}
+		.dollShadow .dollEye,.dollShadow .mouse{
+			display: none;
+		}
+		
+@-webkit-keyframes showShadow{
+	0%{
+		opacity:0;
+		-webkit-transform:skew(-60deg) ;
+	}
+	13%{
+		opacity:0;	
+		-webkit-transform:skew(-60deg) ;
+	}
+	25%{
+		opacity:1;
+		
+		-webkit-transform:skew(-60deg) ;
+	}
+	100%{
+		opacity:1;
+	}
+}
+@-moz-keyframes showShadow{
+	0%{
+		opacity:0;
+		-moz-transform:skew(-60deg) ;
+	}
+	13%{
+		opacity:0;	
+		-moz-transform:skew(-60deg) ;
+	}
+	25%{
+		opacity:1;
+		
+		-moz-transform:skew(-60deg) ;
+	}
+	100%{
+		opacity:1;
+	}
+}
+
+		@-webkit-keyframes Dawn{
+			0%{
+				background-color: rgba(0,0,0,1);
+
+			}
+			
+			100%{
+				background-color: rgba(0,0,0,0);
+			}
+		}
+		@-moz-keyframes Dawn{
+			0%{
+				background-color: rgba(0,0,0,1);
+
+			}
+			
+			100%{
+				background-color: rgba(0,0,0,0);
+			}
+		}
+		@-webkit-keyframes sunMove{
+			0%{
+				top:120px;
+			}
+			100%{
+				top:20px;
+			}
+		}
+		@-moz-keyframes sunMove{
+			0%{
+				top:120px;
+			}
+			100%{
+				top:20px;
+			}
+		}
+		@-webkit-keyframes dollMove{
+			0%{
+				top:350px;
+				left:850px;
+			}
+			100%{
+				top:35px;
+				left:85px;
+			}
+		}
+		@-moz-keyframes dollMove{
+			0%{
+				top:350px;
+				left:850px;
+			}
+			100%{
+				top:35px;
+				left:85px;
+			}
+		}
+		@-webkit-keyframes dollFly{
+			0%{
+				border-radius: 10px 20px;
+			}
+			50%{
+				border-radius: 10px 30px;
+			}
+			100%{
+				border-radius: 10px 20px;
+			}
+		}
+		@-moz-keyframes dollFly{
+			0%{
+				border-radius: 10px 20px;
+			}
+			50%{
+				border-radius: 10px 30px;
+			}
+			100%{
+				border-radius: 10px 20px;
+			}
+		}
+@-webkit-keyframes dollWink{
+	0%{
+		top:20px;
+		height: 10px;
+	}
+	97%{
+		top:20px;
+		height: 10px;
+	}
+	100%{
+		height: 2px;
+		top:26px;
+	}
+}
+@-moz-keyframes dollWink{
+	0%{
+		top:20px;
+		height: 10px;
+	}
+	97%{
+		top:20px;
+		height: 10px;
+	}
+	100%{
+		height: 2px;
+		top:26px;
+	}
+}
