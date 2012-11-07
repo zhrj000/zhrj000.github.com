@@ -13,7 +13,9 @@ Mixiu.MatchingGame=(function(){
 		cards=document.getElementById("cards");
 
 	function createCards(){
-		var card=Mixiu.ClassUtil.getElementsByClassName(cards,"card")[0],
+		var image=new Image();
+		image.onload=function(){
+			var card=Mixiu.ClassUtil.getElementsByClassName(cards,"card")[0],
 			newcard,
 			pattern,
 			back;
@@ -35,6 +37,9 @@ Mixiu.MatchingGame=(function(){
 		back=Mixiu.ClassUtil.getElementsByClassName(card,"back")[0];
 		Mixiu.ClassUtil.addClass(back,pattern);
 		card.setAttribute("data-pattern",pattern);
+		};
+		image.src="../images/deck.png";
+		
 	}
 	function shuffle(){
 		return 0.5-Math.random();
