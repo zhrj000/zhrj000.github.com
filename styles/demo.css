@@ -687,7 +687,7 @@ body{
 	background: #efefef url(../images/deck.png);
 	-webkit-transform: rotate3d(0,1,0,-180deg);
 	-moz-transform: rotate3d(0,1,0,-180deg);
-	z-index: 8;
+	z-index: 8; 
 }
 .card:hover .face,.card-flipped .face{
 	-webkit-box-shadow: 0 0 10px #aaa;
