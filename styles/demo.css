@@ -772,7 +772,7 @@ header,footer,#timer{
 	height: 250px;
 	width: 340px;
 	border-radius: 10px;
-	background:#2B2C30 url(../images/popup_bg.jpg) no-repeat top left;
+	background:#fff url(../images/popup_bg.jpg) no-repeat top left;
 	box-shadow: 6px 6px 6px #333;
 }
 .ribbon{
