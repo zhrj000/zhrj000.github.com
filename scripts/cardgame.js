@@ -38,8 +38,7 @@ Mixiu.MatchingGame=(function(){
 			Mixiu.ClassUtil.addClass(back,pattern);
 				card.setAttribute("data-pattern",pattern);
 		};
-		image.src="../images/deck.png";
-		
+		image.src="../images/deck.png";		
 	}
 	function shuffle(){
 		return 0.5-Math.random();
