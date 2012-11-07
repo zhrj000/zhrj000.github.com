@@ -16,11 +16,11 @@ Mixiu.MatchingGame=(function(){
 		var image=new Image();
 		image.onload=function(){
 			var card=Mixiu.ClassUtil.getElementsByClassName(cards,"card")[0],
-			newcard,
-			pattern,
-			back;
-			cardwidth=Mixiu.StyleUtil.getCssValue(card,"width").replace("px",""),
-			cardheight=Mixiu.StyleUtil.getCssValue(card,"height").replace("px","");
+				newcard,
+				pattern,
+				back;
+				cardwidth=Mixiu.StyleUtil.getCssValue(card,"width").replace("px",""),
+				cardheight=Mixiu.StyleUtil.getCssValue(card,"height").replace("px","");
 			for(var i=1;i<12;i++){
 				newcard=card.cloneNode(true);
 				cards.appendChild(newcard);
