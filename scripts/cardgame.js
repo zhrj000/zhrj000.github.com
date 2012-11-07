@@ -21,23 +21,23 @@ Mixiu.MatchingGame=(function(){
 			back;
 			cardwidth=Mixiu.StyleUtil.getCssValue(card,"width").replace("px",""),
 			cardheight=Mixiu.StyleUtil.getCssValue(card,"height").replace("px","");
-		for(var i=1;i<12;i++){
-			newcard=card.cloneNode(true);
-			cards.appendChild(newcard);
-			newcard.style.left=(parseInt(cardwidth)+20)*(i%4)+"px";
-			newcard.style.top=(parseInt(cardheight)+20)*Math.floor(i/4)+"px";
+			for(var i=1;i<12;i++){
+				newcard=card.cloneNode(true);
+				cards.appendChild(newcard);
+				newcard.style.left=(parseInt(cardwidth)+20)*(i%4)+"px";
+				newcard.style.top=(parseInt(cardheight)+20)*Math.floor(i/4)+"px";
+				pattern=deck.pop();
+				back=Mixiu.ClassUtil.getElementsByClassName(newcard,"back")[0];
+				Mixiu.ClassUtil.addClass(back,pattern);
+				newcard.setAttribute("data-pattern",pattern);
+			}
+			card.style.left=0;
+			card.style.top=0;
 			pattern=deck.pop();
-			back=Mixiu.ClassUtil.getElementsByClassName(newcard,"back")[0];
+			back=Mixiu.ClassUtil.getElementsByClassName(card,"back")[0];
 			Mixiu.ClassUtil.addClass(back,pattern);
-			newcard.setAttribute("data-pattern",pattern);
-		}
-		card.style.left=0;
-		card.style.top=0;
-		pattern=deck.pop();
-		back=Mixiu.ClassUtil.getElementsByClassName(card,"back")[0];
-		Mixiu.ClassUtil.addClass(back,pattern);
-		card.setAttribute("data-pattern",pattern);
-		};
+				card.setAttribute("data-pattern",pattern);
+			};
 		image.src="../images/deck.png";
 		
 	}
