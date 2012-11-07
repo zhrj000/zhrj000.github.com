@@ -9,6 +9,7 @@ Mixiu.MatchingGame=(function(){
 		],
 		elapsedTime=0,
 		timer,
+		isStart=false,  //判断游戏是否处于进行中的状态
 		cards=document.getElementById("cards");
 
 	function createCards(){
@@ -153,20 +154,29 @@ Mixiu.MatchingGame=(function(){
 		if(second<10)second="0"+second;
 		document.getElementById("elapsed-time").innerHTML=(minute+":"+second);
 		timer=setTimeout(arguments.callee,1000);
+
+		//当游戏页面被关闭时，去除计时器，isStart置为假，即游戏不在进行时
+		if(Mixiu.ClassUtil.getElementsByClassName(document,"demoDiv")[0].style.display==="none"){
+			clearTimeout(timer);
+			isStart=false;
+		}
 	}
 	return{
 		init:function(){
 			deck.sort(shuffle);
+			createCards();
 			Mixiu.EventUtil.addHandler(cards,"click",function(event){
 				var event=Mixiu.EventUtil.getEvent(event),
 					target=Mixiu.EventUtil.getTarget(event),
 					card=target.parentNode;
 				if(Mixiu.ClassUtil.hasClass(card,"card")){
+					if(!isStart){
+						isStart=true;                  //点击第一张牌时游戏开始，计时器开始计时
+						timer=setTimeout(counterTimer,1000);
+					}
 					selectCard(card);
 				}	
 			});
-			createCards();
-			timer=setTimeout(counterTimer,1000);
 		}
 	}
 
