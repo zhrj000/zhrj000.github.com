@@ -140,6 +140,9 @@ Mixiu.MatchingGame=(function(){
 		for(i=removedcards.length-1;i>=0;i--){
 			Mixiu.ClassUtil.removeClass(removedcards[i],"card-removed");
 		}
+		document.getElementById("elapsed-time").innerHTML="00:00";
+		elapsedTime=0;
+		timer=setTimeout(counterTimer,1000);
 		Mixiu.ClassUtil.addClass(document.getElementById("popup"),"hide");
 	}
 	function counterTimer(){
