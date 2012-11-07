@@ -120,6 +120,17 @@ Mixiu.ClassUtil={
 		}
 	}
 }
+/*去掉字符串首尾空格*/
+function trim(text){
+	text=text.replace(/^\s+/,"");
+	for(var i=text.length-1;i>=0;i--){
+		if(/\S/.test(text.charAt(i))){
+			text=text.substring(0,i+1);
+			break;
+		}
+	}
+	return text;
+}
 
 Mixiu.Demo=(function(){
 	var demo=Mixiu.ClassUtil.getElementsByClassName(document,"demo")[0],

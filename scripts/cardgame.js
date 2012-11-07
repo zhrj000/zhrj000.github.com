@@ -7,6 +7,8 @@ Mixiu.MatchingGame=(function(){
 			'cardBQ','cardBQ',
 			'cardBJ','cardBJ',
 		],
+		elapsedTime=0,
+		timer,
 		cards=document.getElementById("cards");
 
 	function createCards(){
@@ -51,10 +53,9 @@ Mixiu.MatchingGame=(function(){
 		if(isMatchPattern()){
 			Mixiu.ClassUtil.removeClass(flippedcard,"card-flipped");
 			Mixiu.ClassUtil.addClass(flippedcard,"card-removed");
-			cards.removeChild(flippedcard);
 			Mixiu.ClassUtil.removeClass(anotherflippedcard,"card-flipped");
 			Mixiu.ClassUtil.addClass(anotherflippedcard,"card-removed");
-			cards.removeChild(anotherflippedcard);
+			isGameOver();
 		}else{
 			Mixiu.ClassUtil.removeClass(flippedcard,"card-flipped");
 			Mixiu.ClassUtil.removeClass(anotherflippedcard,"card-flipped");
@@ -66,7 +67,90 @@ Mixiu.MatchingGame=(function(){
 			anotherpattern=flippedcard[1].getAttribute("data-pattern");
 		return(pattern===anotherpattern);
 	}
+	function isGameOver(){
+		if(Mixiu.ClassUtil.getElementsByClassName(cards,"card-removed").length===Mixiu.ClassUtil.getElementsByClassName(cards,"card").length){
+			gameOver();
+		}
+	}
+	function gameOver() {
+		var doc=document,
+			lastScore,
+			lastScoreObj,
+			lastElapseTime,
+			minute,
+			second,
+			curmonth,
+			curday,
+			curyear,
+			curhours,
+			curminutes,
+			cursecond,
+			now,
+			currentTime,
+			curobj;
+		//停止计时
+		clearTimeout(timer);
+		//显示花费时间
+		doc.getElementById("score").innerHTML=doc.getElementById("elapsed-time").innerHTML;
 
+		lastScore=localStorage.getItem("last-score");
+		lastScoreObj=JSON.parse(lastScore);
+		if(lastScoreObj===null){
+			console.log("null");
+			lastScoreObj={"savedTime":"no record","score":0};
+			console.log(lastScoreObj.savedTime);
+		}
+		//上次的成绩
+		lastElapseTime=lastScoreObj.score;
+		minute=Math.floor(lastElapseTime/60),
+		second=lastElapseTime%60;
+		if(minute<10)minute="0"+minute;
+		if(second<10)second="0"+second;
+		doc.getElementById("last-score").innerHTML=(minute+":"+second);
+		//上次成绩的时间
+		doc.getElementById("saved-time").innerHTML=lastScoreObj.savedTime;
+
+		if(lastElapseTime===0||elapsedTime<lastElapseTime){
+			var ribbon=Mixiu.ClassUtil.getElementsByClassName(doc,"ribbon")[0];
+			Mixiu.ClassUtil.removeClass(ribbon,"hide");
+		}
+		//当前日期时间
+		currentTime=new Date();
+		curmonth=currentTime.getMonth()+1;
+		curday=currentTime.getDate();
+		curyear=currentTime.getFullYear();
+		curhours=currentTime.getHours();
+		curminutes=currentTime.getMinutes();
+		if(curminutes<10)curminutes="0"+curminutes;
+		cursecond=currentTime.getSeconds();
+		if(cursecond<10)cursecond="0"+cursecond;
+		now=curday+"/"+curmonth+"/"+curyear+" "+curhours+":"+curminutes+":"+cursecond;
+		curobj={"savedTime":now,"score":elapsedTime};
+		localStorage.setItem("last-score",JSON.stringify(curobj));					
+
+		Mixiu.ClassUtil.removeClass(doc.getElementById("popup"),"hide");
+		Mixiu.EventUtil.addHandler(doc.getElementById("replay"),"click",function(event){
+			gameReplay();
+		});
+
+	}
+	function gameReplay(){
+		var removedcards=Mixiu.ClassUtil.getElementsByClassName(cards,"card-removed"),
+			i;
+		for(i=removedcards.length-1;i>=0;i--){
+			Mixiu.ClassUtil.removeClass(removedcards[i],"card-removed");
+		}
+		Mixiu.ClassUtil.addClass(document.getElementById("popup"),"hide");
+	}
+	function counterTimer(){
+		elapsedTime++;
+		var minute=Math.floor(elapsedTime/60),
+			second=elapsedTime%60;
+		if(minute<10)minute="0"+minute;
+		if(second<10)second="0"+second;
+		document.getElementById("elapsed-time").innerHTML=(minute+":"+second);
+		timer=setTimeout(arguments.callee,1000);
+	}
 	return{
 		init:function(){
 			deck.sort(shuffle);
@@ -79,6 +163,7 @@ Mixiu.MatchingGame=(function(){
 				}	
 			});
 			createCards();
+			timer=setTimeout(counterTimer,1000);
 		}
 	}
 

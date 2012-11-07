@@ -85,6 +85,9 @@ Uncaught TypeError: Cannot read property 'className' of undefined
 					<header>
 						<h1>Getting Familiar with CSS3 Transiton</h1>
 					</header>
+					<div id="timer">
+						Elapsed time:<span id="elapsed-time">00:00</span>
+					</div>
 					<section id="game">
 						<div id="cards">
 							<div class="card">
@@ -92,6 +95,27 @@ Uncaught TypeError: Cannot read property 'className' of undefined
 								<div class="face back"></div>
 							</div>
 							<div class="c"></div><div class="c"></div>
+						</div>
+					</section>
+					<section id="popup" class="hide">
+						<div id="popup-bg"></div>
+						<div id="popup-box">
+							<div class="ribbon hide">
+								<div class="ribbon-body">
+									<span>New Record</span>
+								</div>
+								<div class="triangle"></div>
+							</div>
+							<div id="popup-box-content">
+								<h2>You Won!</h2>
+								<p>Your Score:</p>
+								<p><span id="score">13</span></p>
+								<p>
+									Last Score:<span id="last-score">20</span><br />
+									Saved on:<span id="saved-time">13/4/2012 3:14pm</span>
+								</p>
+								<p><span id="replay">replay</span></p>
+							</div>
 						</div>
 					</section>
 					<footer>
