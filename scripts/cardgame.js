@@ -114,20 +114,21 @@ Mixiu.MatchingGame=(function(){
 		if(lastElapseTime===0||elapsedTime<lastElapseTime){
 			var ribbon=Mixiu.ClassUtil.getElementsByClassName(doc,"ribbon")[0];
 			Mixiu.ClassUtil.removeClass(ribbon,"hide");
+			//当前日期时间
+			currentTime=new Date();
+			curmonth=currentTime.getMonth()+1;
+			curday=currentTime.getDate();
+			curyear=currentTime.getFullYear();
+			curhours=currentTime.getHours();
+			curminutes=currentTime.getMinutes();
+			if(curminutes<10)curminutes="0"+curminutes;
+			cursecond=currentTime.getSeconds();
+			if(cursecond<10)cursecond="0"+cursecond;
+			now=curday+"/"+curmonth+"/"+curyear+" "+curhours+":"+curminutes+":"+cursecond;
+			curobj={"savedTime":now,"score":elapsedTime};
+			localStorage.setItem("last-score",JSON.stringify(curobj));
 		}
-		//当前日期时间
-		currentTime=new Date();
-		curmonth=currentTime.getMonth()+1;
-		curday=currentTime.getDate();
-		curyear=currentTime.getFullYear();
-		curhours=currentTime.getHours();
-		curminutes=currentTime.getMinutes();
-		if(curminutes<10)curminutes="0"+curminutes;
-		cursecond=currentTime.getSeconds();
-		if(cursecond<10)cursecond="0"+cursecond;
-		now=curday+"/"+curmonth+"/"+curyear+" "+curhours+":"+curminutes+":"+cursecond;
-		curobj={"savedTime":now,"score":elapsedTime};
-		localStorage.setItem("last-score",JSON.stringify(curobj));					
+							
 
 		Mixiu.ClassUtil.removeClass(doc.getElementById("popup"),"hide");
 		Mixiu.EventUtil.addHandler(doc.getElementById("replay"),"click",function(event){
@@ -145,6 +146,8 @@ Mixiu.MatchingGame=(function(){
 		elapsedTime=0;
 		timer=setTimeout(counterTimer,1000);
 		Mixiu.ClassUtil.addClass(document.getElementById("popup"),"hide");
+		var ribbon=Mixiu.ClassUtil.getElementsByClassName(doc,"ribbon")[0];
+		Mixiu.ClassUtil.addClass(ribbon,"hide");
 	}
 	function counterTimer(){
 		elapsedTime++;
