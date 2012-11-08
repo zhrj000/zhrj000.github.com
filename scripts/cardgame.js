@@ -36,7 +36,7 @@ Mixiu.MatchingGame=(function(){
 			pattern=deck.pop();
 			back=Mixiu.ClassUtil.getElementsByClassName(card,"back")[0];
 			Mixiu.ClassUtil.addClass(back,pattern);
-				card.setAttribute("data-pattern",pattern);
+			card.setAttribute("data-pattern",pattern);
 		//};
 		//image.src="../images/deck.png";		
 	}
