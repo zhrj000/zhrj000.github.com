@@ -15,6 +15,7 @@ Mixiu.MatchingGame=(function(){
 	function createCards(){
 		//var image=new Image();
 		//image.onload=function(){
+		
 			var card=Mixiu.ClassUtil.getElementsByClassName(cards,"card")[0],
 				newcard,
 				pattern,
