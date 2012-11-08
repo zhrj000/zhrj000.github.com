@@ -158,4 +158,6 @@ Mixiu.Demo=(function(){
 		}
 	}
 })();
-Mixiu.Demo.init();
+Mixiu.EventUtil.addHandler(window,"load",function(){
+	Mixiu.Demo.init();
+});
