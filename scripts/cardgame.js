@@ -188,4 +188,6 @@ Mixiu.MatchingGame=(function(){
 	}
 
 })();
-Mixiu.MatchingGame.init();
+Mixiu.EventUtil.addHandler(window,"load",function(){
+	Mixiu.MatchingGame.init();
+});
