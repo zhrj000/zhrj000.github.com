@@ -7,10 +7,20 @@ Mixiu.MatchingGame=(function(){
 			'cardBQ','cardBQ',
 			'cardBJ','cardBJ',
 		],
+		Data={
+			loadedImage:0,
+			totalImage:0,
+			ImgCache:[]
+		},
+		loadedImage,
+		totalImage,
 		elapsedTime=0,
 		timer,
 		isStart=false,  //判断游戏是否处于进行中的状态
 		cards=document.getElementById("cards");
+
+	
+
 
 	function createCards(){
 		//var image=new Image();
@@ -27,14 +37,14 @@ Mixiu.MatchingGame=(function(){
 				cards.appendChild(newcard);
 				newcard.style.left=(parseInt(cardwidth)+20)*(i%4)+"px";
 				newcard.style.top=(parseInt(cardheight)+20)*Math.floor(i/4)+"px";
-				pattern=deck.pop();
+				pattern=deck[i];
 				back=Mixiu.ClassUtil.getElementsByClassName(newcard,"back")[0];
 				Mixiu.ClassUtil.addClass(back,pattern);
 				newcard.setAttribute("data-pattern",pattern);
 			}
 			card.style.left=0;
 			card.style.top=0;
-			pattern=deck.pop();
+			pattern=deck[0];
 			back=Mixiu.ClassUtil.getElementsByClassName(card,"back")[0];
 			Mixiu.ClassUtil.addClass(back,pattern);
 			card.setAttribute("data-pattern",pattern);
@@ -144,14 +154,20 @@ Mixiu.MatchingGame=(function(){
 	function gameReplay(){
 		var removedcards=Mixiu.ClassUtil.getElementsByClassName(cards,"card-removed"),
 			i;
-		for(i=removedcards.length-1;i>=0;i--){
-			Mixiu.ClassUtil.removeClass(removedcards[i],"card-removed");
+		for(i=removedcards.length-1;i>0;i--){
+			cards.removeChild(removedcards[i]);
 		}
+		var cardfirst=Mixiu.ClassUtil.getElementsByClassName(removedcards[0],"back")[0],
+			classname=removedcards[0].getAttribute("data-pattern");		
+		Mixiu.ClassUtil.removeClass(cardfirst,classname);
+		Mixiu.ClassUtil.removeClass(removedcards[0],"card-removed");
+		deck.sort(shuffle);
+		createCards();
 		document.getElementById("elapsed-time").innerHTML="00:00";
 		elapsedTime=0;
 		timer=setTimeout(counterTimer,1000);
 		Mixiu.ClassUtil.addClass(document.getElementById("popup"),"hide");
-		var ribbon=Mixiu.ClassUtil.getElementsByClassName(doc,"ribbon")[0];
+		var ribbon=Mixiu.ClassUtil.getElementsByClassName(document,"ribbon")[0];
 		Mixiu.ClassUtil.addClass(ribbon,"hide");
 	}
 	function counterTimer(){

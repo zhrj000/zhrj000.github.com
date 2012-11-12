@@ -136,13 +136,14 @@ h1 span{
 	text-decoration: underline;
 }
 .content{
+	position: relative;
 	width: 500px;
 	margin-right: 50px;
 	float: right;
 	overflow-x:hidden;
 }
 .article,.articleList{
-	padding-top: 18px;
+	padding-top: 18px;	
 }
 .article h2,.articleList h2{
 	font-size: 2em;
