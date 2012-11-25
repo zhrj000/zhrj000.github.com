@@ -1,4 +1,4 @@
-(function(){
+var moduleScores=(function(){
 	var datatable=null,
 		db=openDatabase('MyData','','My Database',1024*1024*2),
 		EventUtil={
@@ -65,58 +65,6 @@
 				}
 			}
 		};
-	function init(){
-		if(db===null)alert("yes");
-		datatable=document.getElementById("datatable");
-		showAllData();
-		EventUtil.addHandler(document,"click",function(event){
-			event=EventUtil.getEvent(event);
-			var target=EventUtil.getTarget(event);
-			switch(target.id){
-				case "savestu":
-					saveStuInfo();
-					break;
-				case "savetran":
-					saveTranInfo();
-					break;
-				case "saveall":
-					saveAll();
-					break;
-				case "delstu":
-					delStuInfo();
-					break;
-				case "deltran":
-					delTranInfo();
-					break;
-			}
-		});
-		EventUtil.addHandler(datatable,"click",function(event){
-			event=EventUtil.getEvent(event);
-			var target=EventUtil.getTarget(event);
-			if(ClassUtil.hasClass(target,"clickable")){
-				ClassUtil.addClass(target,"read-write");
-			}
-		});
-		EventUtil.addHandler(document,"mouseover",function(event){
-			event=EventUtil.getEvent(event);
-			var target=EventUtil.getTarget(event);
-			if(ClassUtil.hasClass(target,"viewanaly")){
-				var x=getElementLeft(target),
-					y=getElementTop(target)-document.getElementById("canvas").height-22;
-				showCanvascard(target,x,y);
-			}else if(ClassUtil.hasClass(target,"transcripts_name")){
-				var x=getElementLeft(target),
-					y=getElementTop(target)-document.getElementById("canvas").height-22;
-				showCanvascard(target,x,y);
-			}else if(target.id==="canvascard"||target.id==="canvas"){
-
-			}else{
-				var canvascard=document.getElementById("canvascard");
-				canvascard.style.display="none";
-			}
-		});
-	}
-
 	function showCanvascard(element,x,y){
 		var tr=element.parentNode,
 			ths=tr.childNodes,
@@ -155,13 +103,14 @@
 		for(var i=datatable.childNodes.length-1;i>=0;i--){
 			datatable.removeChild(datatable.childNodes[i]);
 		}
-		var tr=document.createElement('tr'),
+		var frag=document.createDocumentFragment(),
+			tr=document.createElement('tr'),
 			th2=document.createElement('th'),
 			th3=document.createElement('th');
 		th2.innerHTML="学号";
 		th3.innerHTML="姓名";
-		tr.appendChild(th2);
-		tr.appendChild(th3);
+		frag.appendChild(th2);
+		frag.appendChild(th3);
 		//取出成绩单表头
 		db.transaction(function(tx){
 			tx.executeSql('SELECT * FROM TranInfo',[],function(tx,rs){
@@ -172,8 +121,9 @@
 					th.setAttribute("data-tranid",rs.rows.item(i).tranid);
 					ClassUtil.addClass(th,"transcripts_name");
 					ClassUtil.addClass(th,"clickable");
-					tr.appendChild(th);
+					frag.appendChild(th);
 				}
+				tr.appendChild(frag);
 			});
 		});
 		datatable.appendChild(tr);
@@ -181,7 +131,8 @@
 
 	//row是学生信息
 	function showData(row){
-		var tr=document.createElement('tr'),
+		var frag=document.createDocumentFragment(),
+			tr=document.createElement('tr'),
 			td2=document.createElement('td'),
 			td3=document.createElement('td');
 		td2.innerHTML=row.stuid;
@@ -190,37 +141,35 @@
 		td3.setAttribute("data-stuid",row.stuid);
 		ClassUtil.addClass(td3,"stu_name");
 		ClassUtil.addClass(td3,"clickable");
-		tr.appendChild(td2);
-		tr.appendChild(td3);
+		frag.appendChild(td2);
+		frag.appendChild(td3);
 		//取出每个学生信息的同时取出相应的所有成绩
 		db.transaction(function(tx){
 			var transcripts=datatable.getElementsByClassName("transcripts_name");
-			for(var i=0;i<transcripts.length;i++){
+			for(var i=0,max=transcripts.length;i<max;i++){
 				(function(num){
 					var tranid=transcripts[num].getAttribute("data-tranid");
-				tx.executeSql('SELECT scores FROM ScoresInfo WHERE stuid=? AND tranid=?',[row.stuid,tranid],function(tx,rs){
-					var td=document.createElement('td');
-					td.setAttribute("data-stuid",row.stuid);
-					td.setAttribute("data-tranid",tranid);
-					ClassUtil.addClass(td,"stu_score");
-					ClassUtil.addClass(td,"clickable");
-					tr.appendChild(td);
-					//alert(row.stuid+","+tranid);
-					//alert(rs.rows.item.length);
-					if(rs.rows.length===0){
-						tx.executeSql('INSERT INTO ScoresInfo VALUES(?,?,?)',[td.getAttribute("data-stuid"),td.getAttribute("data-tranid"),0]);
-						td.innerHTML="0";
-					}else{
-					 	td.innerHTML=rs.rows.item(0).scores;
-					}
-					
-				},function(tx,error){
-					//alert(error.source+"::"+error.message);
-				});
-				})(i);
-				
-			}
-			
+					tx.executeSql('SELECT scores FROM ScoresInfo WHERE stuid=? AND tranid=?',[row.stuid,tranid],function(tx,rs){
+						var td=document.createElement('td');
+						td.setAttribute("data-stuid",row.stuid);
+						td.setAttribute("data-tranid",tranid);
+						ClassUtil.addClass(td,"stu_score");
+						ClassUtil.addClass(td,"clickable");						
+						//alert(row.stuid+","+tranid);
+						//alert(rs.rows.item.length);
+						if(rs.rows.length===0){
+							tx.executeSql('INSERT INTO ScoresInfo VALUES(?,?,?)',[td.getAttribute("data-stuid"),td.getAttribute("data-tranid"),0]);
+							td.innerHTML="0";
+						}else{
+					 		td.innerHTML=rs.rows.item(0).scores;
+						}
+						tr.appendChild(td);
+					},function(tx,error){
+						//alert(error.source+"::"+error.message);
+					});
+				})(i);				
+			}		
+			tr.appendChild(frag);
 		});
 		datatable.appendChild(tr);
 	}
@@ -359,9 +308,6 @@
 			}
 		}
 	}
-	// window.onload=function(){
-		
-	// }
 
 	function getElementLeft(element){
 　　　　var actualLeft = element.offsetLeft;
@@ -386,12 +332,64 @@
 
 　　　　return actualTop;
 　　}
-	EventUtil.addHandler(window,"load",function(){
-		init();
-	});
+	function addEvents(){
+		datatable=document.getElementById("datatable");
+		EventUtil.addHandler(document,"click",function(event){
+			event=EventUtil.getEvent(event);
+			var target=EventUtil.getTarget(event);
+			switch(target.id){
+				case "savestu":
+					saveStuInfo();
+					break;
+				case "savetran":
+					saveTranInfo();
+					break;
+				case "saveall":
+					saveAll();
+					break;
+				case "delstu":
+					delStuInfo();
+					break;
+				case "deltran":
+					delTranInfo();
+					break;
+			}
+		});
+		EventUtil.addHandler(datatable,"click",function(event){
+			event=EventUtil.getEvent(event);
+			var target=EventUtil.getTarget(event);
+			if(ClassUtil.hasClass(target,"clickable")){
+				ClassUtil.addClass(target,"read-write");
+			}
+		});
+		EventUtil.addHandler(document,"mouseover",function(event){
+			event=EventUtil.getEvent(event);
+			var target=EventUtil.getTarget(event);
+			if(ClassUtil.hasClass(target,"viewanaly")){
+				var x=getElementLeft(target),
+					y=getElementTop(target)-document.getElementById("canvas").height-22;
+				showCanvascard(target,x,y);
+			}else if(ClassUtil.hasClass(target,"transcripts_name")){
+				var x=getElementLeft(target),
+					y=getElementTop(target)-document.getElementById("canvas").height-22;
+				showCanvascard(target,x,y);
+			}else if(target.id==="canvascard"||target.id==="canvas"){
 
-
+			}else{
+				var canvascard=document.getElementById("canvascard");
+				canvascard.style.display="none";
+			}
+		});
+	}
+	return{
+		init:function(){
+			showAllData();
+			addEvents();
+		}
+	}
 })();
+moduleScores.init();
+
 
 
 //数据库地址：C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Default\databases

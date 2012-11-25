@@ -70,9 +70,9 @@
 			endrad=level[i].count/slength*360+beginrad;
 			drawFan(ctx,150,150,100,beginrad,endrad,level[i].colors);
 			if((endrad-beginrad)!==0){
-				console.log((endrad+beginrad)/2);
-				console.log(150+50*Math.cos((endrad+beginrad)/2*Math.PI/180));
-				console.log(150+50*Math.sin((endrad+beginrad)/2*Math.PI/180));
+				// console.log((endrad+beginrad)/2);
+				// console.log(150+50*Math.cos((endrad+beginrad)/2*Math.PI/180));
+				// console.log(150+50*Math.sin((endrad+beginrad)/2*Math.PI/180));
 				drawText(ctx,150+50*Math.cos((endrad+beginrad)/2*Math.PI/180)-10,150+50*Math.sin((endrad+beginrad)/2*Math.PI/180),Math.round((level[i].count/slength)*1000)/10+"%","#000");
 			}
 			beginrad=endrad;
