@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 	var jsonText = '[{"sid":"01","pid":"0","letter":"首页","url":"Default.aspx","img":"images/logo.png","lv":"1"},{"sid":"02","pid":"0","letter":"关于","url":"About.aspx","img":"images/logo.png","lv":"1"},{"sid":"03","pid":"0","letter":"报表设置","url":"page.html","img":"images/logo.png","lv":"1"},{"sid":"04","pid":"0","letter":"系统监控","url":"page.html","img":"images/logo.png","lv":"1"},{"sid":"05","pid":"0","letter":"分机报表","url":"page.html","img":"images/logo.png","lv":"1"},{"sid":"011","pid":"01","letter":"1客户报表","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"012","pid":"01","letter":"1录音报表","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"06","pid":"0","letter":"高级设置aaa","url":"page.html","img":"images/logo.png","lv":"1"},{"sid":"041","pid":"04","letter":"22户报表","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"042","pid":"04","letter":"22音报表","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"0411","pid":"041","letter":"gfgs4报表","url":"page2.aspx","img":"images/logo.png","lv":"3"},{"sid":"0421","pid":"042","letter":"2222报表","url":"page.html","img":"images/logo.png","lv":"3"},{"sid":"013","pid":"01","letter":"1服务评价","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"021","pid":"02","letter":"2设置","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"022","pid":"02","letter":"2基本设置","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"0111","pid":"011","letter":"3333","url":"About.aspx","img":"images/logo.png","lv":"3"},{"sid":"0112","pid":"011","letter":"54dfg","url":"page1.aspx","img":"images/logo.png","lv":"3"},{"sid":"031","pid":"03","letter":"23333评价","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"032","pid":"03","letter":"23333置","url":"page.html","img":"images/logo.png","lv":"2"},{"sid":"033","pid":"03","letter":"233333设置","url":"page.html","img":"images/logo.png","lv":"2"}]';
 	//菜单类
 	function Navigation(classname, idname) {
@@ -239,3 +239,5 @@
 	});
 
 })();
+
+
