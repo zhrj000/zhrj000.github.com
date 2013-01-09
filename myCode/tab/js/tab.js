@@ -8,8 +8,8 @@ var tabMod=(function(){
 		cnt_item_current='ui-tab-cnt-item-current';              //当前tab面板
 
 	function addHandler(element,type,handler){
-		if(element.addEventListenr){
-			element.addEventListenr(type,handler,false);
+		if(element.addEventListener){
+			element.addEventListener(type,handler,false);
 		}else if(element.attachEvent){
 			element.attachEvent("on"+type,handler);
 		}else{
@@ -43,7 +43,7 @@ var tabMod=(function(){
 			//console.log("click");
 			event=event||window.event;
 			var target=event.target||event.srcElement;
-			if((" "+target.className+" ").replace(" /[\n\t\r]/g"," ").indexOf(" "+trigger_item+" ")!=-1&&target.title){
+			if((" "+target.className+" ").replace(" /[\n\t\r]/g"," ").indexOf(" "+trigger_item+" ")!==-1&&target.title){
 				event.preventDefault();
 				var triCur=getElementsByClassName(tab,trigger_item_current),
 					cntCur=getElementsByClassName(tab,cnt_item_current),

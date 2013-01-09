@@ -54,9 +54,10 @@ table { border-collapse: collapse; border-spacing: 0; }
 	width: 170px;
 	height: 30px;
 	border: 1px solid #B7C2C9;
-	padding: 4px;	
+	padding: 0 4px;	
 	margin-right: 5px;
-	line-height: 30px;
+	/*line-height: 1.5;*/
+	font-size: 16px/1.5;
 }
 .ui-input-label{
 	position: absolute;

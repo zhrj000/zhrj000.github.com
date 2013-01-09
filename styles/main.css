@@ -153,7 +153,9 @@ h1 span{
 	font-weight: bold;
 }
 .posttime{
+	font-family:"Georgia","Helvetica Neue", Arial, sans-serif;
 	text-align: right;
+	vertical-align:baseline;
 }
 .article p{
 	line-height: 1.6em;

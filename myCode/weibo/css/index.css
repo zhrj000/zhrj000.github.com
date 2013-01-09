@@ -50,11 +50,19 @@ table { border-collapse: collapse; border-spacing: 0; }
 	通用样式，css样式可重用
 */
 
+.hd{
+	margin: 20px auto;
+	padding-bottom: 20px;
+	text-align: center;
+	border-bottom: 2px solid #6ABFED;
+}
 
 /*
 	----------(module)'s css----------
 	各模块样式
 */
+
+
 
 /*
 	----------(module)'s css----------

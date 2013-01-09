@@ -80,9 +80,13 @@
 
 // })();
 
+/*
+*    jsonp只能get不能post,所以type方法写定为get，不传参
+*    jsonp不支持async:false(同步操作)
+*/
 var weibo=(function(){
 
-	var appkey='2934159616',
+	var _appkey='2934159616',
 		_url='',
 		_data='',
 		_successHandler;
@@ -93,6 +97,8 @@ var weibo=(function(){
 			url:_url,
 			dataType:'jsonp',
 			data:_data,
+			//jsonp:'fn-callback',
+			//async:false,
 			success:function(datas,status,xhr){
 				//console.log(datas.data);
 				_successHandler(datas,status,xhr);
@@ -110,20 +116,68 @@ var weibo=(function(){
 		init:function(url,data,successHandler){
 			_url=url;
 			_data=data;
-			_data.source=appkey;
+			_data.source=_appkey;
 			_successHandler=successHandler;
 			loadWeibo();
 		}
 	}
 })();
 
-weibo.init('https://api.weibo.com/2/friendships/friends.json',{uid:1750070171,screen_name:'36氪'},
-	function(datas,status,xhr){
-		console.log(datas.data);
-	});
+// weibo.init('https://api.weibo.com/2/friendships/friends/bilateral/ids.json', //第一个参数url
+// 		   {uid:1841934207,count:2000},				   //第二个参数data
+// 		   function(datas,status,xhr){                         //第三个参数successHandler
+// 			    for(var i=0;i<datas.data.ids.length;i+=1){
+// 			    	//console.log(datas.data.ids[i]);
+// 			    	var data_n={},
+// 			    		url='https://api.weibo.com/2/friendships/friends/bilateral/ids.json';
+// 			    	data_n.uid=datas.data.ids[i];
+// 			    	data_n.count=2000;
+// 			    	weibo.init(url,data_n,ca)
+// 			    }
+// 			  //  console.log(datas.data.ids.length);
+// 		   }
+// );
 
 
 
+
+
+var app=(function(){
+	var id_s=1943746003,
+		fl=0,
+		url='https://api.weibo.com/2/friendships/friends/bilateral/ids.json',
+		data={count:2000};
+
+
+	function successHandler(datas,status,xhr) {
+		var id_all=datas.data.ids;
+		fl+=1;
+		for(var i=0,max=id_all.length;i<max;i+=1){
+			if(id_all[i]===id_s){
+				console.log("true");
+			}else if(fl<2){
+				
+				loadId(id_all[i]);
+			}
+		}
+	}
+	function loadId(id){
+		data.uid=id;
+		weibo.init(url,data,successHandler);
+	};
+
+	return{
+		init:function(){
+			loadId(1841934207);
+		}
+	}
+})();
+
+app.init();
+
+
+
+//1841934207
 // var weibo=(function(){
 // 	var appkey='2934159616';
 
