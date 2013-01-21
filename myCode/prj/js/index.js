@@ -146,12 +146,12 @@ var page=(function(){
 				break;
 			case "box_4":
 				panelGo("top",$("#box_4"),$("#p9"),-1000,259);
-				panelGo("top",$("#box_4"),$("#p10"),950,259);
+				panelGo("top",$("#box_4"),$("#p10"),1250,259);
 			
 				break;
 			case "box_5":
 				panelGo("top",$("#box_5"),$("#p11"),-1000,270);
-				panelGo("top",$("#box_5"),$("#p12"),950,506);
+				panelGo("top",$("#box_5"),$("#p12"),1250,506);
 				break;
 			default:
 			
