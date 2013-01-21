@@ -95,7 +95,6 @@ var page=(function(){
 				
 			}
 			if(start>end){
-				
 				if(dis<=end){
 					//console.log("dis:"+dis);
 					target.css("top",end);//target.css("opacity",1);
@@ -111,17 +110,17 @@ var page=(function(){
 
 	
 	function initPanelPosition(){
-		$("#p1").css({top:-300});
+		$("#p1").css({top:-1000});
 		$("#p2").css({top:950});
-		$("#p3").css({top:-1200});
-		$("#p4").css({top:-1200});
-		$("#p5").css({top:-1200});
+		$("#p3").css({top:-1000});
+		$("#p4").css({top:-1000});
+		$("#p5").css({top:-1000});
 		$("#p6").css({top:950});
 		$("#p7").css({top:950});
 		$("#p8").css({top:950});
-		$("#p9").css({top:-1200});
+		$("#p9").css({top:-1000});
 		$("#p10").css({top:950});
-		$("#p11").css({top:-1200});
+		$("#p11").css({top:-1000});
 		$("#p12").css({top:950});
 	}
 	function initAnimatePath(board){
@@ -129,16 +128,16 @@ var page=(function(){
 		switch(board.attr("id")){
 			case "box_2":
 					
-				panelGo("top",$("#box_2"),$("#p1"),-1200,252);
+				panelGo("top",$("#box_2"),$("#p1"),-1000,252);
 				panelGo("top",$("#box_2"),$("#p2"),1250,550);
 			
 				break;
 			case "box_3":
 				// $("#p1").css("top",-200);
 				// $("#p1").css("top",1250);
-				panelGo("top",$("#box_3"),$("#p3"),-1200,228);
-				panelGo("top",$("#box_3"),$("#p4"),-1200,228);
-				panelGo("top",$("#box_3"),$("#p5"),-1200,228);
+				panelGo("top",$("#box_3"),$("#p3"),-1000,228);
+				panelGo("top",$("#box_3"),$("#p4"),-1000,228);
+				panelGo("top",$("#box_3"),$("#p5"),-1000,228);
 				panelGo("top",$("#box_3"),$("#p6"),1250,502);
 				panelGo("top",$("#box_3"),$("#p7"),1250,502);
 				panelGo("top",$("#box_3"),$("#p8"),1250,502);
@@ -146,12 +145,12 @@ var page=(function(){
 				
 				break;
 			case "box_4":
-				panelGo("top",$("#box_4"),$("#p9"),-1200,259);
+				panelGo("top",$("#box_4"),$("#p9"),-1000,259);
 				panelGo("top",$("#box_4"),$("#p10"),950,259);
 			
 				break;
 			case "box_5":
-				panelGo("top",$("#box_5"),$("#p11"),-1200,270);
+				panelGo("top",$("#box_5"),$("#p11"),-1000,270);
 				panelGo("top",$("#box_5"),$("#p12"),950,506);
 				break;
 			default:
@@ -285,7 +284,7 @@ var page=(function(){
 				windowHeight=$(window).height(),
 				elementHeight=boards[i].height();
 
-			if(elementTop-scrollTop<=(windowHeight/2)&&elementTop-scrollTop>=0){								
+			if(elementTop-scrollTop<=windowHeight&&elementTop-scrollTop>=0){								
 				initAnimatePath(boards[i]);			
 			}
 
