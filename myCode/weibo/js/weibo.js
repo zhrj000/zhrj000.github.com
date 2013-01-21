@@ -123,20 +123,20 @@ var weibo=(function(){
 	}
 })();
 
-// weibo.init('https://api.weibo.com/2/friendships/friends/bilateral/ids.json', //第一个参数url
-// 		   {uid:1841934207,count:2000},				   //第二个参数data
-// 		   function(datas,status,xhr){                         //第三个参数successHandler
-// 			    for(var i=0;i<datas.data.ids.length;i+=1){
-// 			    	//console.log(datas.data.ids[i]);
-// 			    	var data_n={},
-// 			    		url='https://api.weibo.com/2/friendships/friends/bilateral/ids.json';
-// 			    	data_n.uid=datas.data.ids[i];
-// 			    	data_n.count=2000;
-// 			    	weibo.init(url,data_n,ca)
-// 			    }
-// 			  //  console.log(datas.data.ids.length);
-// 		   }
-// );
+weibo.init('https://api.weibo.com/2/friendships/friends/bilateral/ids.json', //第一个参数url
+		   {uid:1841934207,count:2000},				   //第二个参数data
+		   function(datas,status,xhr){                         //第三个参数successHandler
+			    for(var i=0;i<datas.data.ids.length;i+=1){
+			    	//console.log(datas.data.ids[i]);
+			    	var data_n={},
+			    		url='https://api.weibo.com/2/friendships/friends/bilateral/ids.json';
+			    	data_n.uid=datas.data.ids[i];
+			    	data_n.count=2000;
+			    	weibo.init(url,data_n,ca)
+			    }
+			  //  console.log(datas.data.ids.length);
+		   }
+);
 
 
 
@@ -151,12 +151,11 @@ var app=(function(){
 
 	function successHandler(datas,status,xhr) {
 		var id_all=datas.data.ids;
-		fl+=1;
 		for(var i=0,max=id_all.length;i<max;i+=1){
 			if(id_all[i]===id_s){
 				console.log("true");
 			}else if(fl<2){
-				
+				fl+=1;
 				loadId(id_all[i]);
 			}
 		}

@@ -71,17 +71,30 @@ var inputMod=(function(){
 						label.style.display="";
 					}
 					break;
+				case "focus":            //blur focus不冒泡的，怎么事件委托？非ie用捕获，ie用focusout
+					if(target.value===''){
+						label.style.color="red";
+					}
+					break;
+				case "focusin":
+					if(target.value===''){
+						label.style.color="red";
+					}
+					break;
 
 			}
 		}
 		
 	}
 	function addInputEvent(){
+		alert(form.attachEvent);
 		publicUtil.addHandler(form,"keypress",inputHandler);
 		if(form.attachEvent){                         //解决blur focus不冒泡，上面addEventListerner参数变成true了
-			publicUtil.addHandler(form,"focusout",inputHandler);
+			publicUtil.addHandler(form,"focusin",inputHandler);
+			//publicUtil.addHandler(form,"focusout",inputHandler);
 		}else{
-			publicUtil.addHandler(form,"blur",inputHandler);
+			publicUtil.addHandler(form,"focus",inputHandler);
+			//publicUtil.addHandler(form,"blur",inputHandler);
 		}
 	}
 	
@@ -94,7 +107,7 @@ var inputMod=(function(){
 
 })();
 
-// inputMod.init("form-1");
+ inputMod.init("form-1");
 
 /*
 * ------------with jq
@@ -132,4 +145,4 @@ var inputMod2=(function(){
 	}
 
 })();
-inputMod2.init("form-1");
+//inputMod2.init("form-1");

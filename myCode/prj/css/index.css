@@ -1,0 +1,314 @@
+/*
+	----------KISSY CSS Reset----------
+	KISSY CSS Reset
+	理念：1. reset 的目的不是清除浏览器的默认样式，这仅是部分工作。清除和重置是紧密不可分的。
+     2. reset 的目的不是让默认样式在所有浏览器下一致，而是减少默认样式有可能带来的问题。
+     3. reset 期望提供一套普适通用的基础样式。但没有银弹，推荐根据具体需求，裁剪和修改后再使用。
+*/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {
+    margin: 0;
+    padding: 0;
+}
+
+/** 设置默认字体 **/
+body,
+button, input, select, textarea /* for ie */ {
+    font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+
+/** 重置文本格式元素 **/
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+sup { vertical-align: text-top; } /* 重置，减少对行高的影响 */
+sub { vertical-align: text-bottom; }
+
+/** 重置表单元素 **/
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: 0; } /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; } /* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/*
+	----------public's css----------
+	通用样式，css样式可重用
+*/
+.fixed{
+	position: fixed;
+}
+* html .fixed{
+	position:absolute;
+	top:expression(eval(document.documentElement.scrollTop+300));
+}
+html{
+_background:url(about:blank); /* 阻止闪动 in IE6 , 把空文件换成about:blank , 减少请求 */
+}
+
+.phark{
+	text-indent:-9999px;
+}
+
+.wrapper{
+	position:relative;
+	min-width: 1000px;
+}
+
+.box-outer{
+	position: relative;
+	text-align: center;
+}
+.box-inner{
+	position: relative;
+	height: 980px;
+    width:1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.box-outer-2 .box-inner,.box-outer-3 .box-inner,.box-outer-4 .box-inner,.box-outer-5 .box-inner{
+	position:relative;
+	overflow:hidden;
+	
+}
+.box-inner .ren{
+	z-index: 100;
+}
+.box-inner .panel{
+	position: absolute;
+	/*top: -9999px;
+	left: -9999px;*/
+}
+
+/*
+	----------(module)'s css----------
+	各模块样式
+*/
+.box-outer-1{
+	background:#a50000 url(../images/box_01.jpg) no-repeat top center;
+	z-index: 700;
+}
+.tag{
+	position: absolute;
+	top:0;
+	right: 0;
+	width: 165px;
+	height: 160px;
+	background: url(../images/tag.png) top left;
+}
+.logo{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 187px;
+	height: 92px;
+	background: url(../images/logo.png) top left;
+}
+.flash{
+	position: absolute;
+	top:12px;
+	right: -32px;
+	width:677px;
+	height:407px ;
+}
+
+
+/*
+	----------(box-outer-2)'s css----------
+	各模块样式
+*/
+.box-outer-2{
+	background:#7a237b url(../images/box_02.jpg) no-repeat top center;
+	z-index: 600;
+}
+.box-outer-2 .panel-1{
+	top:252px;
+	left:270px;
+	width: 506px;
+	height: 219px;
+	background: url(../images/block_1.png) no-repeat top left;
+}
+.box-outer-2 .panel-2{
+	top:550px;
+	left:114px;
+	width: 810px;
+	height: 219px;
+	background: url(../images/block_2.png) no-repeat top left;
+}
+/*
+	----------(box-outer-3)'s css----------
+	各模块样式
+*/
+.box-outer-3{
+	background:#ed9904 url(../images/box_03.jpg) no-repeat top center;
+	z-index: 500;
+}
+.box-outer-3 .panel{
+	width: 182px;
+	height: 228px;
+}
+.box-outer-3 .panel-1{
+	top:228px;
+	left:277px;
+	background: url(../images/block_7.png) no-repeat top left;
+}
+.box-outer-3 .panel-2{
+	top:228px;
+	left:479px;
+	background: url(../images/block_6.png) no-repeat top left;
+}
+.box-outer-3 .panel-3{
+	top:228px;
+	left:678px;
+	background: url(../images/block_4.png) no-repeat top left;
+}
+.box-outer-3 .panel-4{
+	top:501px;
+	left:147px;
+	background: url(../images/block_4.png) no-repeat top left;
+}
+.box-outer-3 .panel-5{
+	top:501px;
+	left:349px;
+	background: url(../images/block_5.png) no-repeat top left;
+}
+.box-outer-3 .panel-6{
+	top:501px;
+	left:550px;
+	background: url(../images/block_3.png) no-repeat top left;
+}
+/*
+	----------(box-outer-4)'s css----------
+	各模块样式
+*/
+.box-outer-4{
+	background:#6799ed url(../images/box_04.jpg) no-repeat top center;
+	z-index: 400;
+}
+.box-outer-4 .panel-1{
+	top:259px;
+	left:25px;
+	width:341px;
+	height:468px;
+	background: url(../images/block_8.png) no-repeat top left;
+}
+.box-outer-4 .panel-2{
+	top:259px;
+	left:650px;
+	width:341px;
+	height:468px;
+	background: url(../images/block_9.png) no-repeat top left;
+}
+.box-outer-4 .ren-1{
+	position: absolute;
+	top:514px;
+	left:216px;
+	width:189px;
+	height:283px;
+	background: url(../images/ren_01.png) no-repeat top left;
+}
+.box-outer-4 .ren-2{
+	position: absolute;
+	top:546px;
+	left:595px;
+	width:194px;
+	height:256px;
+	background: url(../images/ren_02.png) no-repeat top left;
+}
+/*
+	----------(box-outer-5)'s css----------
+	各模块样式
+*/
+.box-outer-5{
+	background:#bf55ab url(../images/box_05.jpg) no-repeat top center;
+	z-index: 300;
+}
+.box-outer-5 .panel-1{
+	top:270px;
+	left:30px;
+	width:549px;
+	height:379px;
+	background: url(../images/block_10.png) no-repeat top left;
+}
+.box-outer-5 .panel-2{
+	top:506px;
+	left:304px;
+	width:683px;
+	height:248px;
+	background: url(../images/block_11.png) no-repeat top left;
+}
+.box-outer-5 .ren-1{
+	position: absolute;
+	top:226px;
+	left:597px;
+	width:157px;
+	height:286px;
+	background: url(../images/ren_03.png) no-repeat top left;
+}
+.box-outer-5 .ren-2{
+	position: absolute;
+	top:549px;
+	left:217px;
+	width:173px;
+	height:263px;
+	background: url(../images/ren_04.png) no-repeat top left;
+}
+/*
+	----------nav's css----------
+	各模块样式
+*/
+.nav{
+	right:210px;
+	bottom: 320px;
+	background: url(../images/nav_bg.png) no-repeat top left;
+	z-index: 1000;
+}
+.nav li{
+	margin-bottom: 35px;
+	font-size: 0;
+}
+.nav-item{
+	display:block;
+	width: 33px;
+	height: 33px;
+	background: url(../images/nav-item-bg.png) no-repeat 50% 50%;
+	_background: url(../images/nav-item-bg8.png) no-repeat 50% 50%;
+}
+.nav-item-last{
+	position: relative;
+	top:1px;
+}
+.nav-item:hover{
+	background: none;
+}
+.nav-item-active{
+	background: none;
+}
+/*
+	----------(module)'s css----------
+	各模块样式
+*/
+.footer{
+	position: absolute;
+	left:0;
+	width: 1000px;
+	line-height: 1.8;
+	width: 100%;
+	bottom: 45px;
+	text-align: center;
+	color: #480b3c;
+}

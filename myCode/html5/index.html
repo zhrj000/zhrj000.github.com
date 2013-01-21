@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <style type="text/css">
+        	#mymenu{
+        		visibility: hidden;
+        	}
+        </style>
+
+    </head>
+    <body>
+
+    	<div id="myDiv">mydiv</div>
+    	<ul id="mymenu">
+    		<li>item1</li>
+    		<li>item2</li>
+    		<li>item3</li>
+    	</ul>
+
+        <iframe src="http://www.csdn.net"></iframe>
+        <script type="text/javascript" src="js/mod.js"></script>
+        <script type="text/javascript">
+        Mod.addHandler(window,"load",function(event){
+        	var div=Mod.$("#myDiv");
+        	Mod.addHandler(div,"contextmenu",function(event){
+        		event=Mod.getEvent(event);
+        		Mod.preventDefault(event);
+        		var menu=Mod.$("#mymenu");
+        		menu.style.left=event.clientX+"px";
+        		menu.style.top=event.clientY+"px";
+        		menu.style.visibility="visible";
+        	});
+        	Mod.addHandler(document,"click",function(event){
+        		Mod.$("#mymenu").style.visibility="hidden";
+        	});
+        });
+        
+        Mod.addHandler(document,"DOMContentLoaded",function(event){
+        	alert("content load");
+        });
+
+
+
+        </script> 
+
+
+
+        <script type="text/javascript">//<![CDATA[
+  var $ = document.getElementById;
+  var fireDOMReadyEvent = function () {
+    window.clearInterval(timer)
+    alert('DOM content loaded----------------http://www.never-online.net/blog/');
+  }
+  if (!!window.ActiveXObject) { 
+    // Using doScroll method to instead of script tag to deal with DOM content loaded event
+    var timer = null;
+    
+    timer = setInterval(function () {
+      try {
+        document.body.doScroll('left');
+        fireDOMReadyEvent();
+      } catch(ex) {};
+    });
+    
+ } 
+//]]></script>
+
+
+
+    </body>
+</html>
