@@ -138,27 +138,30 @@ var page=(function(){
 			
 		}
 
+
+
+		//fix 误差
 		if(!!windowScale(father,0,0.1)){
 			switch(father.attr("id")){
 				case "box_2":
 				$("#p1").css({top:-220});
-				$("#p2").css({top:950});
+				$("#p2").css({top:750});
 				break;
 			case "box_3":
 				$("#p3").css({top:-220});
 				$("#p4").css({top:-220});
 				$("#p5").css({top:-220});
-				$("#p6").css({top:950});
-				$("#p7").css({top:950});
-				$("#p8").css({top:950});
+				$("#p6").css({top:850});
+				$("#p7").css({top:850});
+				$("#p8").css({top:850});
 				break;
 			case "box_4":
-				$("#p9").css({top:-470});
-				$("#p10").css({top:950});
+				$("#p9").css({top:-200});
+				$("#p10").css({top:750});
 				break;
 			case "box_5":
-				$("#p11").css({top:-300});
-				$("#p12").css({top:950});
+				$("#p11").css({top:-380});
+				$("#p12").css({top:850});
 				break;
 			default:
 			
@@ -166,6 +169,8 @@ var page=(function(){
 			}
 		}
 
+
+		//fix 误差
 		if(!!windowScale(father,0.9,1)){
 			switch(father.attr("id")){
 				case "box_2":
