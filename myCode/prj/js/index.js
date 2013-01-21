@@ -204,7 +204,7 @@ var page=(function(){
 		switch(board.attr("id")){
 			case "box_2":
 				moveToo($("#box_2"),$("#p1"),-220,252,0.2,0.8);
-				moveToo($("#box_2"),$("#p2"),850,550,0.7,1);
+				moveToo($("#box_2"),$("#p2"),750,550,0.7,1);
 				break;
 			case "box_3":
 				moveToo($("#box_3"),$("#p3"),-220,228,0.2,0.8);
