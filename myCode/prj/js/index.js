@@ -138,33 +138,66 @@ var page=(function(){
 			
 		}
 
-		// if(!!windowScale(father,0,win_start)){
-		// 	switch(father.attr("id")){
-		// 		case "box_2":
-		// 		$("#p1").css({top:-220});
-		// 		$("#p2").css({top:950});
-		// 		break;
-		// 	case "box_3":
-		// 		$("#p3").css({top:-220});
-		// 		$("#p4").css({top:-220});
-		// 		$("#p5").css({top:-220});
-		// 		$("#p6").css({top:950});
-		// 		$("#p7").css({top:950});
-		// 		$("#p8").css({top:950});
-		// 		break;
-		// 	case "box_4":
-		// 		$("#p9").css({top:-470});
-		// 		$("#p10").css({top:950});
-		// 		break;
-		// 	case "box_5":
-		// 		$("#p11").css({top:-300});
-		// 		$("#p12").css({top:950});
-		// 		break;
-		// 	default:
+		if(!!windowScale(father,0,0.1)){
+			switch(father.attr("id")){
+				case "box_2":
+				$("#p1").css({top:-220});
+				$("#p2").css({top:950});
+				break;
+			case "box_3":
+				$("#p3").css({top:-220});
+				$("#p4").css({top:-220});
+				$("#p5").css({top:-220});
+				$("#p6").css({top:950});
+				$("#p7").css({top:950});
+				$("#p8").css({top:950});
+				break;
+			case "box_4":
+				$("#p9").css({top:-470});
+				$("#p10").css({top:950});
+				break;
+			case "box_5":
+				$("#p11").css({top:-300});
+				$("#p12").css({top:950});
+				break;
+			default:
 			
-		// 		break;
-		// 	}
-		// }
+				break;
+			}
+		}
+
+		if(!!windowScale(father,0.9,1)){
+			switch(father.attr("id")){
+				case "box_2":
+				$("#p11").css({top:270});
+				$("#p12").css({top:506});
+				break;
+			case "box_3":
+				$("#p1").css({top:252});
+				$("#p2").css({top:550});
+				
+				break;
+			case "box_4":
+				$("#p3").css({top:228});
+				$("#p4").css({top:228});
+				$("#p5").css({top:228});
+				$("#p6").css({top:501});
+				$("#p7").css({top:501});
+				$("#p8").css({top:501});
+
+				
+				break;
+			case "box_5":
+				$("#p9").css({top:259});
+				$("#p10").css({top:259});
+
+				
+				break;
+			default:
+			
+				break;
+			}
+		}
 	}
 	function initAnimatePath(board){
 
@@ -183,7 +216,7 @@ var page=(function(){
 				break;
 			case "box_4":
 				moveToo($("#box_4"),$("#p9"),-200,259,0.2,0.8);
-				moveToo($("#box_4"),$("#p10"),850,259,0.7,1);
+				moveToo($("#box_4"),$("#p10"),750,259,0.6,1);
 				break;
 			case "box_5":
 				moveToo($("#box_5"),$("#p11"),-380,270,0.2,0.8);
