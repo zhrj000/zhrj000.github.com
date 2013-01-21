@@ -169,13 +169,20 @@ var page=(function(){
 		if(!!windowScale(father,0.9,1)){
 			switch(father.attr("id")){
 				case "box_2":
+				$("#p1").css({top:252});
+				$("#p2").css({top:550});
 				$("#p11").css({top:270});
 				$("#p12").css({top:506});
 				break;
 			case "box_3":
 				$("#p1").css({top:252});
 				$("#p2").css({top:550});
-				
+				$("#p3").css({top:228});
+				$("#p4").css({top:228});
+				$("#p5").css({top:228});
+				$("#p6").css({top:501});
+				$("#p7").css({top:501});
+				$("#p8").css({top:501});
 				break;
 			case "box_4":
 				$("#p3").css({top:228});
@@ -184,13 +191,15 @@ var page=(function(){
 				$("#p6").css({top:501});
 				$("#p7").css({top:501});
 				$("#p8").css({top:501});
-
+				$("#p9").css({top:259});
+				$("#p10").css({top:259});
 				
 				break;
 			case "box_5":
 				$("#p9").css({top:259});
 				$("#p10").css({top:259});
-
+				$("#p11").css({top:270});
+				$("#p12").css({top:506});
 				
 				break;
 			default:
