@@ -102,13 +102,13 @@ var page=(function(){
 		//console.log(move);
 		return move;
 	}
-	function moveToo(father,element,ele_start,ele_end,win_start,win_end){
+	function moveToo(eventType,father,element,ele_start,ele_end,win_start,win_end){
 		
 		if(!!windowScale(father,win_start,win_end)){			
 			var top_cur=parseInt(element.css("top").replace("px","")),
 				move=getMove(father,ele_start,ele_end,win_start,win_end),
 				top_new=ele_start+move;
-
+			if(move>0){
 			if(ele_start<ele_end){
 				if(top_new>ele_end){
 					top_new=ele_end;
@@ -138,7 +138,7 @@ var page=(function(){
 			
 		}
 
-
+}
 
 		//fix 误差
 		if(!!windowScale(father,0,0.1)){
@@ -213,28 +213,28 @@ var page=(function(){
 			}
 		}
 	}
-	function initAnimatePath(board){
+	function initAnimatePath(board,eventType){
 
 		switch(board.attr("id")){
 			case "box_2":
-				moveToo($("#box_2"),$("#p1"),-220,252,0.2,0.8);
-				moveToo($("#box_2"),$("#p2"),750,550,0.7,1);
+				moveToo(eventType,$("#box_2"),$("#p1"),-220,252,0.2,0.8);
+				moveToo(eventType,$("#box_2"),$("#p2"),750,550,0.7,1);
 				break;
 			case "box_3":
-				moveToo($("#box_3"),$("#p3"),-220,228,0.2,0.8);
-				moveToo($("#box_3"),$("#p4"),-220,228,0.2,0.8);
-				moveToo($("#box_3"),$("#p5"),-220,228,0.2,0.8);
-				moveToo($("#box_3"),$("#p6"),850,501,0.7,1);
-				moveToo($("#box_3"),$("#p7"),850,501,0.7,1);
-				moveToo($("#box_3"),$("#p8"),850,501,0.7,1);
+				moveToo(eventType,$("#box_3"),$("#p3"),-220,228,0.2,0.8);
+				moveToo(eventType,$("#box_3"),$("#p4"),-220,228,0.2,0.8);
+				moveToo(eventType,$("#box_3"),$("#p5"),-220,228,0.2,0.8);
+				moveToo(eventType,$("#box_3"),$("#p6"),850,501,0.7,1);
+				moveToo(eventType,$("#box_3"),$("#p7"),850,501,0.7,1);
+				moveToo(eventType,$("#box_3"),$("#p8"),850,501,0.7,1);
 				break;
 			case "box_4":
-				moveToo($("#box_4"),$("#p9"),-200,259,0.2,0.8);
-				moveToo($("#box_4"),$("#p10"),750,259,0.6,1);
+				moveToo(eventType,$("#box_4"),$("#p9"),-200,259,0.2,0.8);
+				moveToo(eventType,$("#box_4"),$("#p10"),750,259,0.6,1);
 				break;
 			case "box_5":
-				moveToo($("#box_5"),$("#p11"),-380,270,0.2,0.8);
-				moveToo($("#box_5"),$("#p12"),850,506,0.7,1);
+				moveToo(eventType,$("#box_5"),$("#p11"),-380,270,0.2,0.8);
+				moveToo(eventType,$("#box_5"),$("#p12"),850,506,0.7,1);
 				break;
 			default:
 			
@@ -251,7 +251,7 @@ var page=(function(){
 			windowHeight=$(window).height(),
 			elementHeight=boards[i].height();
 
-			initAnimatePath(boards[i]);
+			initAnimatePath(boards[i],event.type);
 
 
 
@@ -361,6 +361,9 @@ var page=(function(){
 			nav.on("click","a",clickHandler);
 			$(window).on("scroll",scrollHanlder);
 			$(window).on("resize",initNavPosition);
+
+
+			$(window).on("mousewheel",scrollHanlder);
 			
 			$(".nav-item")[0].click();
 			
