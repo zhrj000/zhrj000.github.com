@@ -151,9 +151,9 @@ var page=(function(){
 				$("#p3").css({top:-220});
 				$("#p4").css({top:-220});
 				$("#p5").css({top:-220});
-				$("#p6").css({top:850});
-				$("#p7").css({top:850});
-				$("#p8").css({top:850});
+				$("#p6").css({top:650});
+				$("#p7").css({top:650});
+				$("#p8").css({top:650});
 				break;
 			case "box_4":
 				$("#p9").css({top:-200});
@@ -161,7 +161,7 @@ var page=(function(){
 				break;
 			case "box_5":
 				$("#p11").css({top:-380});
-				$("#p12").css({top:850});
+				$("#p12").css({top:750});
 				break;
 			default:
 			
