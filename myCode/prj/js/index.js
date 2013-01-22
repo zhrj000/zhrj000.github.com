@@ -108,7 +108,7 @@ var page=(function(){
 			var top_cur=parseInt(element.css("top").replace("px","")),
 				move=getMove(father,ele_start,ele_end,win_start,win_end),
 				top_new=ele_start+move;
-			if(move>0){
+			if(Math.abs(move)>1){
 			if(ele_start<ele_end){
 				if(top_new>ele_end){
 					top_new=ele_end;
@@ -234,7 +234,7 @@ var page=(function(){
 				break;
 			case "box_5":
 				moveToo(eventType,$("#box_5"),$("#p11"),-380,270,0.2,0.8);
-				moveToo(eventType,$("#box_5"),$("#p12"),850,506,0.7,1);
+				moveToo(eventType,$("#box_5"),$("#p12"),750,506,0.6,1);
 				break;
 			default:
 			
