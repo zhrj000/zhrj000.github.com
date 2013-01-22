@@ -356,16 +356,20 @@ var page=(function(){
 		init:function(){
 			
 			initBoards();
-			initPanelPosition();
+			//initPanelPosition();
 			initNavPosition();
 			nav.on("click","a",clickHandler);
 			$(window).on("scroll",scrollHanlder);
 			$(window).on("resize",initNavPosition);
 
 
-			$(window).on("mousewheel",scrollHanlder);
 			
-			$(".nav-item")[0].click();
+			
+			// $(".nav-item")[0].click();
+			// $("."+trigger_name).each(function(){
+			// 	console.log("1");
+			// 	$(this).removeClass(trigger_active);
+			// });
 			
 		}
 	}
