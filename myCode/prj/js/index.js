@@ -224,9 +224,9 @@ var page=(function(){
 				moveToo(eventType,$("#box_3"),$("#p3"),-220,228,0.2,0.8);
 				moveToo(eventType,$("#box_3"),$("#p4"),-220,228,0.2,0.8);
 				moveToo(eventType,$("#box_3"),$("#p5"),-220,228,0.2,0.8);
-				moveToo(eventType,$("#box_3"),$("#p6"),850,501,0.7,1);
-				moveToo(eventType,$("#box_3"),$("#p7"),850,501,0.7,1);
-				moveToo(eventType,$("#box_3"),$("#p8"),850,501,0.7,1);
+				moveToo(eventType,$("#box_3"),$("#p6"),650,501,0.7,1);
+				moveToo(eventType,$("#box_3"),$("#p7"),650,501,0.7,1);
+				moveToo(eventType,$("#box_3"),$("#p8"),650,501,0.7,1);
 				break;
 			case "box_4":
 				moveToo(eventType,$("#box_4"),$("#p9"),-200,259,0.2,0.8);
