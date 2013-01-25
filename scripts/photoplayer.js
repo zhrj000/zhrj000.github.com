@@ -96,13 +96,13 @@ Mixiu.PhotoPlayer=(function(){
 			if(opa>0){
 				focus.style.cssText="opacity:"+opa+";filter:alpha(opacity="+(opa*100)+");";
 				opa-=0.4;
-				fade=setTimeout(arguments.callee,40);
+				fade=setTimeout(arguments.callee,180);
 			}else{
 				clearTimeout(fade);
 				setFocusSrc(src);     /*图片淡出后，下一张图片淡入*/
 				fadeIn();
 			}
-		},40);
+		},180);
 	}
 	/*图片淡入*/
 	function fadeIn(){
@@ -115,11 +115,11 @@ Mixiu.PhotoPlayer=(function(){
 			if(opa<=1){
 				focus.style.cssText="opacity:"+opa+";filter:alpha(opacity="+(opa*100)+");";
 				opa+=0.4;
-				fade=setTimeout(arguments.callee,40);
+				fade=setTimeout(arguments.callee,180);
 			}else{
 				clearTimeout(fade);
 			}
-		},40);
+		},180);
 	}
 	return{
 		play:function(id,max_,speed_){
