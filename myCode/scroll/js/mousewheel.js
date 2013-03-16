@@ -31,6 +31,8 @@ function enclose(frame,content,bar,block,bdistance,cdistance,minutop){
 			   e.wheelDelta/4)||
 		          e.detail*-10||
 					          0;
+		          
+
 
 		if(isMacWebkit){
 			deltaX/=30;
@@ -66,6 +68,7 @@ function enclose(frame,content,bar,block,bdistance,cdistance,minutop){
 				content.style.left=contentX+'px';
 			}
 			if(deltaY){
+				contentY=content.offsetTop;
 				var minoffset=Math.min(frameheight-contentheight,0);
 				contentY=Math.max(contentY+deltaY,minoffset);
 				contentY=Math.min(contentY,0);
