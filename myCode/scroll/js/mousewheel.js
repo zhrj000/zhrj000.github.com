@@ -62,6 +62,7 @@ function enclose(frame,content,bar,block,bdistance,cdistance,minutop){
 			}
 		}else{
 			if(deltaX){
+				contentX=content.offsetLeft;
 				var minoffset=Math.min(framewidth-contentwidth,0);
 				contentX=Math.max(contentX+deltaX,minoffset);
 				contentX=Math.min(contentX,0);
