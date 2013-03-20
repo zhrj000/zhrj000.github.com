@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/base.css" />
+		<style type="text/css">
+
+			
+			body{
+				min-width: 1000px;
+				overflow: auto;
+			}
+			.wrapper{
+				width: 1000px;
+				font-size: 14px;
+				margin: 0 auto;
+			}
+			.words{
+				margin-bottom: 200px;
+			}
+
+			.popup-layer{
+				z-index: 1000;
+				position: absolute;
+				top:0;
+				left: 0;
+				display: none;
+				background: rgba(0,0,0,0.75);
+    			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000,endColorstr=#CC000000);
+				cursor: auto;
+
+			}
+
+			.popup-layer-box{
+				position: absolute;
+				width: 700px;
+				height: 400px;
+				background-color: #94C2E0;
+			}
+
+			.close-popupLayer{
+				position: absolute;
+				top: 2px;
+				right: 2px;
+				font-size: 40px;
+				line-height: 40px;
+				color: red;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			.btn-popup{
+				padding: 20px;
+				cursor: pointer;
+				font-size: 20px;
+				font-weight: bold;
+				color: red;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+
+			<p class="words">SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”</p>
+			<p class="words">SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”</p>
+			<p><input type="button" value="click me~" class="btn-popup" id="btnPopup" /></p>
+			<p class="words">SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”</p><p class="words">SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”</p><p class="words">SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”</p><p class="words">SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”SetCapture()函数的说明为：“该函数在属于当前线程的指定窗口里设置鼠标捕获。一旦窗口捕获了鼠标，所有鼠标输入都针对该窗口，无论光标是否在窗口的边界内。同一时刻只能有一个窗口捕获鼠标。如果鼠标光标在另一个线程创建的窗口上，只有当鼠标键按下时系统才将鼠标输入指向指定的窗口。”</p>
+			
+		</div>
+		
+
+		<div id="popupLayer" class="popup-layer">
+
+			<div id="popupLayerBox" class="popup-layer-box">
+				<div id="closePopupLayer" class="close-popupLayer">×</div>
+			</div>
+
+		</div>
+		
+		<script type="text/javascript" src="js/popup.js"></script>
+	</body>
+</html>
