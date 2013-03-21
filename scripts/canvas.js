@@ -102,10 +102,11 @@
 		}else{
 			ctx.fillStyle=color;
 			ctx.beginPath();
-			ctx.arc(x,y,length,Math.PI/180*radB,Math.PI/180*radE);
+			ctx.moveTo(x,y);
+			ctx.arc(x,y,length,Math.PI/180*radB,Math.PI/180*radE,false);
 			ctx.closePath();
 			ctx.fill();
-			drawIsoscelesTriangle(ctx,x,y,length,radB,radE,color);
+			//drawIsoscelesTriangle(ctx,x,y,length,radB,radE,color);
 		}
 	}
 	//绘制文本
