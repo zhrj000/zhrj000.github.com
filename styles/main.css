@@ -49,6 +49,9 @@ table {
 
 /*main'css*/
 
+body{
+	min-width: 960px;
+}
 .wrapper{
 	width: 960px;
 	margin-left: auto;

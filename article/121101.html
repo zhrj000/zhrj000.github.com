@@ -53,7 +53,7 @@
 					<div class="article">
 						<h2>纸牌记忆配对</h2>
 						<p class="posttime">——发表于2012/11/01 </p>
-						<p>【查看纸牌记忆配对的  &gt;&gt;  <span class="demo">demo</span>】</p>
+						<p>【查看纸牌记忆配对的  &gt;&gt;  <span class="demo" id="todemo">demo</span>】</p>
 						<p>关于该demo的一些笔记：</p>
 						<p>1)游戏纸牌第一次被点击，开始计时</p>
 						<p>2)退出游戏，停止计时，再进入游戏页面时，也是第一次点击游戏在原来基础上计时</p>
@@ -81,9 +81,9 @@ Uncaught TypeError: Cannot read property 'className' of undefined
 			</div>
 			<div class="footer">Copyright © 2012 <a href="http://zhrj000.github.com/">zhrj000.github.com</a> All rights reserved.</div>
 		</div>
-		<div class="demoDiv">
-			<div class="demoDivInner">
-				<div class="close">×</div>
+		<div class="demoDiv" id="demodiv">
+			<div class="demoDivInner" id="demodivinner">
+				<div class="close" id="democlose">×</div>
 				<div class="article">
 					<h2>纸牌记忆配对</h2>
 					<p>第一次点击纸牌，游戏开始计时</p>
