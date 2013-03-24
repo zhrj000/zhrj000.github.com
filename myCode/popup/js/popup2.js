@@ -119,67 +119,36 @@ $(function(){
 				moveblockHeight=this.moveblock.height(),
 				upblockHeight=this.upblock?this.upblock.height():0,
 				downblockHeight=this.downblock?this.downblock.height():0,
-				moveblock_startTop=parseInt(this.moveblock.css('top')),
-				contents_startTop=parseInt(this.contents.css('top')),
+				moveblock_startTop=this.moveblock.position().top,
+				contents_startTop=this.contents.position().top,
 				startY=event.pageY;
-			console.log('moveblock_startTop='+moveblock_startTop);
 
-			console.log(this.moveblock.get(0).setCapture);
-			if(this.moveblock.get(0).setCapture){
-				this.moveblock.on('mousemove',function(event){
-					doDrag(event);
-				});
-				this.moveblock.on('museup',function(event){
-					stopDrag(event);
-				});
-				this.moveblock.get(0).setCapture();
-			}else{
-				this.moveblock.on('mousemove',function(event){
-					doDrag(event);
-				});
-				this.moveblock.on('museup',function(event){
-					stopDrag(event);
-				});
-			}
+				console.log(contents_startTop);
+				$(document).bind('mousemove',doDrag);
+				$(document).bind('mouseup',stopDrag);
 			function doDrag(event){
-				console.log('doDrag');
-
-
 				var moveblock_newTop=event.pageY-startY+moveblock_startTop,
-					contents_newTop=contents_startTop-(event.pageY-startY)/(contentsHeight-panelHeight)*(barHeight-moveblockHeight-upblockHeight-downblockHeight);
+					contents_newTop=contents_startTop-(event.pageY-startY)/(barHeight-moveblockHeight-downblockHeight)*(contentsHeight-panelHeight);
 
 				if(moveblock_newTop<upblockHeight){
-					console.log('1、moveblock_newTop='+moveblock_newTop+',upblockHeight='+upblockHeight);
 					moveblock_newTop=upblockHeight;
 					contents_newTop=0;
 				}else if(moveblock_newTop>barHeight-moveblockHeight-downblockHeight){
-					console.log('2、moveblock_newTop='+moveblock_newTop+',barHeight-moveblockHeight-downblockHeight='+(barHeight-moveblockHeight-downblockHeight));
 					moveblock_newTop=barHeight-moveblockHeight-downblockHeight;
 					contents_newTop=-(contentsHeight-panelHeight);
 				}
-				//console.log(startY);
+				if(moveblock_newTop>0){
+					contents_newTop=0;
+				}
+				
 				that.moveblock.css('top',moveblock_newTop+'px');
 				that.contents.css('top',contents_newTop+'px');
 
 			}
-			function stopDrag(){
-				console.log(that.moveblock.get(0));
-
-				if(that.moveblock.get(0).releaseCapture){
-					that.moveblock.on('mousemove',function(event){
-						doDrag(event);
-					});
-					that.moveblock.on('museup',function(event){
-						stopDrag(event);
-					});
-					that.moveblock.get(0).setCapture();
-				}
-				that.moveblock.unbind('mousemove',function(event){
-					doDrag(event);
-				});
-				that.moveblock.unbind('museup',function(event){
-					stopDrag(event);
-				});
+			function stopDrag(event){
+				console.log('stop');
+				$(document).unbind('mousemove',doDrag);
+				$(document).unbind('mouseup',stopDrag);
 			}
 
 		}

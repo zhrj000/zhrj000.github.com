@@ -33,6 +33,9 @@ var scroll=(function(){
 		document.onmouseup=function(){
 			stopDrag();
 		}
+		document.getElementsByTagName('body')[0].onselectstart=function(){
+			return false;
+		}
 		
 	}
 
@@ -65,6 +68,10 @@ var scroll=(function(){
 		// }
 		document.onmousemove=null;
 		document.onmouseup=null;
+
+		document.getElementsByTagName('body')[0].onselectstart=function(){
+			return true;
+		};
 	}
 
 
