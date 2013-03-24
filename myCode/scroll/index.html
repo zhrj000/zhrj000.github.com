@@ -41,14 +41,20 @@ var scroll=(function(){
 		startY=event.clientY;
 		bTop=scrollblock.offsetTop;
 		cTop=scrollcontent.offsetTop;
-		if(scrollblock.setCapture){
+		// if(scrollblock.setCapture){
 			
-			scrollblock.onmousemove=doDrag;
-			scrollblock.onmouseup=stopDrag;
-			scrollblock.setCapture();
-		}else{
-			document.addEventListener("mousemove",doDrag,true);
-            document.addEventListener("mouseup",stopDrag,true);
+		// 	scrollblock.onmousemove=doDrag;
+		// 	scrollblock.onmouseup=stopDrag;
+		// 	scrollblock.setCapture();
+		// }else{
+		// 	document.addEventListener("mousemove",doDrag,true);
+        //     document.addEventListener("mouseup",stopDrag,true);
+		// }
+		document.onmousemove=function(){
+			doDrag();
+		}
+		document.onmouseup=function(){
+			stopDrag();
 		}
 		
 	}
@@ -72,17 +78,16 @@ var scroll=(function(){
 	}
 
 	function stopDrag(event){
-		if(scrollblock.releaseCapture){
-
-			scrollblock.onmousemove=doDrag;
-			scrollblock.onmouseup=stopDrag;
-			scrollblock.releaseCapture();
-		}else{
-			document.removeEventListener("mousemove",doDrag,true);
-			document.removeEventListener("mouseup",stopDrag,true);
-		}
-		scrollblock.onmousemove=null;
-		scrollblock.onmouseup=null;
+		// if(scrollblock.releaseCapture){
+		// 	// scrollblock.onmousemove=doDrag;
+		// 	// scrollblock.onmouseup=stopDrag;
+		// 	scrollblock.releaseCapture();
+		// }else{
+		// 	document.removeEventListener("mousemove",doDrag,true);
+		// 	document.removeEventListener("mouseup",stopDrag,true);
+		// }
+		document.onmousemove=null;
+		document.onmouseup=null;
 	}
 
 

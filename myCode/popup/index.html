@@ -20,23 +20,13 @@
 				margin-bottom: 200px;
 			}
 
-			.popup-layer{
-				z-index: 1000;
-				position: absolute;
-				top:0;
-				left: 0;
-				display: none;
-				background: rgba(0,0,0,0.75);
-    			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000,endColorstr=#CC000000);
-				cursor: auto;
-
-			}
-
+		
 			.popup-layer-box{
 				position: absolute;
-				width: 700px;
-				height: 400px;
 				background-color: #94C2E0;
+				display: none;
+				padding: 30px;
+				background-color: #308B14;
 			}
 
 			.close-popupLayer{
@@ -57,6 +47,50 @@
 				color: red;
 			}
 
+			.scroll-panel{
+				position: relative;
+				width: 540px;
+				height: 400px;
+				padding-right: 60px;
+				overflow: hidden;
+			}
+			.scroll-contents{
+				font-size: 12px;
+				color: #fff7c1;
+    			line-height: 1.6;
+			}
+			.scroll-bar{
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 400px;
+				width: 20px;
+				background-color: #217208;
+			}
+			.scroll-up{
+				position: absolute;
+				top: 0;
+				left:0;
+				width: 20px;
+				height: 10px;
+			}
+			.scroll-move{
+				position: absolute;
+				top: 10px;
+				right: 0;
+				width: 28px;
+				height:16px; 
+				background-color: #FFCC18;
+				cursor: pointer;
+			}
+			.scroll-down{
+				position: absolute;
+				bottom: 0;
+				left:0;
+				width: 20px;
+				height: 10px;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -70,14 +104,22 @@
 		</div>
 		
 
-		<div id="popupLayer" class="popup-layer">
-
-			<div id="popupLayerBox" class="popup-layer-box">
+		<div id="popupLayerBox" class="popup-layer-box">
 				<div id="closePopupLayer" class="close-popupLayer">×</div>
-			</div>
-
+				<div id="panel" class="scroll-panel">
+					<div id="contents" class="scroll-contents">
+						<p>我们认识到，现有的网站和插件可能会受到这些变化的影响，所以提供一个过渡性的升级路径—— jQuery Migrate（迁移）插件。下面的说明中，在1.9中变化或删除的API，大部分可以使用jQuery Migrate（迁移）插件恢复。请注意，jQuery 1.9中所有的变化也将应用到jQuery 2.0中，jQuery Migrate（迁移）插件在jQuery2.0中也是可用的。未压缩，开发版本的jQuery Migrate（迁移）插件使用时会在控制台中显示警告信息，详细的指出不兼容或删除等信息及解决方法。这使得它在现有的jQuery代码和插件上查找和修复问题时非常有用。jQuery Migrate（迁移）插件包含了1.6.4以来存在但1.9已不支持所有API。压缩版本的的jQuery Migrate（迁移）插件，不会在浏览器控制台中产生任何不兼容或删除等信息，并且可以在jQuery 1.9或更高版本，或者旧的不兼容的jQuery代码或插件中使用。jQuery 1.9以前预告过是最后一个支持IE6/7/8的版本（oldIE），如今看来这已经是木已成舟的事情了，jQuery 2.0起(注: 现Beta版本)，将只支持IE 9+及其他HTML5浏览器。在IE6/7/8占有绝对比例的国度，虽然有点失落，但是好在高级浏览器的占有率在逐渐上升。由于jQuery 1.9正式移掉不少了过去标注为过时(deprecated)的API，如果你目前程式已经避用过时API，升级到1.9不会有什么大问题，估计大部分苦逼程序员写的代码肯定或多或少使用了旧的API，无论你用哪个版本的jQuery，建议您总是首先把Migrate（迁移）插件引用进来。它搜罗了1.6.4以来存在但1.9已不支持老的API，打开浏览器的控制台，你可以看到有什么警告或错误的（通过console.log）产生，插件的警告以“JQMIGRATE”开始。可以做为原来代码的修改的参考。(注:使用jQuery Migrate压缩版(jquery-migrate-1.0.0.min.js)只提供兼容性功能而不产生警告信息，要使用开发版未压缩的jquery-migrate-1.0.0.js ，才会在控制台中显示警告信息，详细的不兼容信息及解决方法可以查看官方文档)。增强跨浏览器CSS3支持:现在jQuery1.9在所有的浏览器中支持下面的CSS3选择器，同样能在IE6下工作：
+nth-last-child, :nth-of_type, :nth-last-of-type, :first-of-type, :last-of-type,  nly-of-type , :target, :root及:lang；</p>
+					</div>
+					<div id="bar" class="scroll-bar">
+						<div id="up" class="scroll-up"></div>
+						<div id="move" class="scroll-move"></div>
+						<div id="down" class="scroll-down"></div>
+					</div>
+				</div>
 		</div>
-		
-		<script type="text/javascript" src="js/popup.js"></script>
+
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/popup2.js"></script>
 	</body>
 </html>
