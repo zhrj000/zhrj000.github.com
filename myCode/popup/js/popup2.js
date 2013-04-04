@@ -45,9 +45,12 @@ $(function(){
 		},
 		//遮罩层隐藏
 		hide:function(){					
-			$('body').css('overflow','auto');
-			$('html').css('overflow','');
-			this.layer.fadeOut(500);
+			
+			this.layer.fadeOut(500,function(){
+				$('body').css('overflow','auto');
+				$('html').css('overflow','');
+			});
+			
 		}
 	}
 
@@ -57,6 +60,7 @@ $(function(){
 		this.win=$('#'+win_id);
 		this.close=$('#'+close_id);
 		this.overlay=overlay?overlay:null;
+		this.canResize=false;
 
 		var that=this;
 		//注册关闭按钮的点击事件
@@ -68,11 +72,13 @@ $(function(){
 			that.closeWin();
 		}):null;
 		//注册window resize事件弹出窗位置随窗口resize而变化
-		$(window).on('resize',function(){					
-			that.win.stop(true, false).animate({
+		$(window).on('resize',function(){	
+			if(that.canResize){
+				that.win.stop(true,false).animate({
 				'top':($(window).height()-that.win.height())/2+$(document).scrollTop(),
 				'left':($(window).width()-that.win.width())/2+$(document).scrollLeft()
-			},400,'linear');
+				},400,'linear');
+			}							
 		});
 	}
 	Popupwin.prototype={
@@ -80,15 +86,20 @@ $(function(){
 		closeWin:function(){		
 			this.win.slideUp(300);
 			this.overlay?this.overlay.hide():null;
+			this.canResize=false;
 		},
 		//弹出弹出窗
-		openWin:function(){			
+		openWin:function(){		
+			var that=this;	
 			this.win.css({				//初始化位置在中间
 				'top':($(window).height()-this.win.height())/2+$(document).scrollTop(),
 				'left':($(window).width()-this.win.width())/2+$(document).scrollLeft(),
 				'zIndex':'2000'
 			});
-			this.win.slideDown(300);
+			//this.win.show();
+			this.win.slideDown(300,function(){
+				that.canResize=true;
+			});
 			this.overlay?this.overlay.show():null;
 		}
 	}
@@ -111,7 +122,6 @@ $(function(){
 	}
 	Scroll.prototype={
 		mouseDown:function(event){
-			console.log('down');
 			var that=this,
 				panelHeight=this.panel.height(),
 				contentsHeight=this.contents.height(),
@@ -122,10 +132,12 @@ $(function(){
 				moveblock_startTop=this.moveblock.position().top,
 				contents_startTop=this.contents.position().top,
 				startY=event.pageY;
+		//	alert(this.upblock.height());
+			$(document).bind('mousemove',doDrag);
+			$(document).bind('mouseup',stopDrag);
+			$('body').on('selectstart',function(){return false;});
 
-				console.log(contents_startTop);
-				$(document).bind('mousemove',doDrag);
-				$(document).bind('mouseup',stopDrag);
+			//开始拖动滚动块事件
 			function doDrag(event){
 				var moveblock_newTop=event.pageY-startY+moveblock_startTop,
 					contents_newTop=contents_startTop-(event.pageY-startY)/(barHeight-moveblockHeight-downblockHeight)*(contentsHeight-panelHeight);
@@ -137,7 +149,7 @@ $(function(){
 					moveblock_newTop=barHeight-moveblockHeight-downblockHeight;
 					contents_newTop=-(contentsHeight-panelHeight);
 				}
-				if(moveblock_newTop>0){
+				if(contents_newTop>0){
 					contents_newTop=0;
 				}
 				
@@ -145,14 +157,23 @@ $(function(){
 				that.contents.css('top',contents_newTop+'px');
 
 			}
+
+			//停止拖动滚动块事件
 			function stopDrag(event){
-				console.log('stop');
 				$(document).unbind('mousemove',doDrag);
 				$(document).unbind('mouseup',stopDrag);
+				$('body').unbind('selectstart');
 			}
 
 		}
 	}
+
+	var Tab=(function(){
+
+		
+	}());
+
+
 
 
 	var overlay=new Overlay('overlay',0.75),

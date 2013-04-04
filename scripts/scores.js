@@ -96,10 +96,10 @@
 	}
 	//画扇形
 	function drawFan(ctx,x,y,length,radB,radE,color){
-		// if(radE-radB>180){
-		// 	drawFan(ctx,x,y,length,radB,radB+180,color);
-		// 	drawFan(ctx,x,y,length,radB+180,radE,color);
-		// }else{
+		if(radE-radB>180){
+			drawFan(ctx,x,y,length,radB,radB+180,color);
+			drawFan(ctx,x,y,length,radB+180,radE,color);
+		}else{
 			ctx.fillStyle=color;
 			ctx.beginPath();
 			ctx.moveTo(x,y);
@@ -107,7 +107,7 @@
 			ctx.closePath();
 			ctx.fill();
 			//drawIsoscelesTriangle(ctx,x,y,length,radB,radE,color);
-		// }
+		}
 	}
 	//绘制文本
 	function drawText(ctx,x,y,text,color){
