@@ -500,8 +500,10 @@ var ps=(function(){
 				nW=oW,
 				count=0;
 				nW=oW+distance;
+			curMat=Matrix(canvas.height,canvas.width,imagedata.data);
 			resetCanvasStyle(nW,nH);
 			imagedata=context.getImageData(0,0,nW,nH);
+
 
 			//Math.random()*(20-10)+10
 			for(var i=0;i<oH;i+=1){

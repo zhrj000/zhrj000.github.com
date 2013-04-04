@@ -169,6 +169,7 @@ $(function(){
 					break;
 				case 'mosaics':
 					ps.mosaics();
+					$('#iZoom').attr('id','').val(1).change().attr('id','iZoom');
 					break;
 				default:
 					break;
@@ -226,6 +227,7 @@ $(function(){
 					start=clickX-rect.left,
 					dis=30;
 				ps.spall(start,dis);
+				$('#iZoom').attr('id','').val(1).change().attr('id','iZoom');
 
 			});
 
