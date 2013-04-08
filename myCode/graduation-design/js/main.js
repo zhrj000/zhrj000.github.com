@@ -33,6 +33,7 @@ $(function(){
 					break;
 				case 'iZoom':
 					ps.zoom(val);
+					// ps.zuijinlin(val);
 					break;
 				default:
 					break;
@@ -153,7 +154,6 @@ $(function(){
 					break;
 				case 'gray':
 					ps.gray();
-					
 					break;
 				case 'antisign':
 					ps.antisign();
@@ -163,6 +163,9 @@ $(function(){
 					break;
 				case 'blur':
 					ps.gblur(1,3);
+					break;
+				case 'smear':
+					ps.smear(12);
 					break;
 				case 'sharpen':
 					ps.sharpen();
@@ -253,6 +256,13 @@ $(function(){
 			});
 		}
 
+		function openFile(){
+			$('#file').change(function(event){
+				var file = $('#file').get(0).files[0];
+				drag.openfile(file);
+			});
+		}
+
 		
 		return{
 			init:function(){
@@ -260,7 +270,9 @@ $(function(){
 				
 				$(window).on('resize',resizePanel);
 				drag.init('canvasbox',"image",callback);
+				openFile();
 				navTree.init();
+				
 			}
 		}
 

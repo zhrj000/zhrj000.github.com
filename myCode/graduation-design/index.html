@@ -23,6 +23,7 @@
 							<li><a href="#antisign" title=""></a></li>
 							<li><a href="#binarization" title=""></a></li>
 							<li><a href="#blur" title=""></a></li>
+							<li><a href="#smear" title=""></a></li>
 							<li><a href="#sharpen" title=""></a></li>
 							<li><a href="#mosaics" title=""></a></li>
 							<li><a href="#zoom" title=""></a></li>
@@ -37,7 +38,8 @@
 							<li><a href="#" title="" id="gray">灰度图</a></li>
 							<li><a href="#" title="" id="antisign">反显</a></li>
 							<li><a href="#" title="" id="binarization">二值化</a></li>
-							<li><a href="#" title="" id="blur">模糊</a></li>
+							<li><a href="#" title="" id="blur">高斯模糊</a></li>
+							<li><a href="#" title="" id="smear">动态模糊</a></li>
 							<li><a href="#" title="" id="sharpen">锐化</a></li>
 							<li><a href="#" title="" id="mosaics">马赛克</a></li>
 							<li><a href="#" title="" id="zoom">缩放</a></li>
@@ -137,7 +139,11 @@
 
 				<div class="panel column" id="panel"><!-- .panel 面板 -->
 					<div class="canvas-box" id="canvasbox">
-                    	<p class="canvas-box-words">请拖拽一张图片到这里</p>
+                    	<div class="canvas-inner-box">
+                    		<p>请拖拽或者打开一张图片</p>
+                    		<p class='input-fake'>打开图片</p>
+                    		<p><input class="ui-input-f" type="file" id="file" /></p>
+                    	</div>
 
                 	</div>
 				</div><!-- /.panel -->

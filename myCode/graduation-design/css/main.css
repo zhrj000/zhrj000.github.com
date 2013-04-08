@@ -146,7 +146,7 @@ body{
 }
 .for-zoom{
 	position: absolute;
-	top:323px;
+	top:366px;
 	left: 30px;
 }
 .for-zoom .para-item{
@@ -194,7 +194,7 @@ body{
 }
 .for-rotate{
 	position: absolute;
-	top:366px;
+	top:409px;
 	left: 30px;
 }
 .for-rotate .tcenter{
@@ -270,7 +270,7 @@ body{
 }
 .for-mirroring{
 	position: absolute;
-	top:409px;
+	top:452px;
 	left: 30px;
 }
 .for-mirroring .para-item{
@@ -371,7 +371,7 @@ body{
 }
 .for-mixing{
 	position: absolute;
-	top:452px;
+	top:495px;
 	left: 30px;
 }
 .for-mixing .piece{
@@ -387,7 +387,7 @@ body{
 }
 .for-savepic{
 	/*display: block;*/
-	top:497px;
+	top:540px;
 }
 .for-savepic label{
 	cursor: pointer;
@@ -412,12 +412,46 @@ body{
 	height: 100%;
 	overflow: hidden;
 }
-.canvas-box-words{
+.canvas-inner-box{
 	position: relative;
 	font-size: 28px;
 	color: #CBCBCB;
 	text-align: center;
-	top:45%;
+	top:40%;
+}
+.canvas-inner-box input{
+	cursor: pointer;
+}
+.input-fake{
+	position: relative;
+	height: 50px;
+	width: 130px;
+	color: #fff;
+	font-size: 22px;
+	line-height: 50px;
+	background-color: #6ABFEC;
+	margin: 0 auto;
+	border-radius: 5px;
+	box-shadow: 4px 4px 4px #4E4E4E;
+	cursor: pointer;
+}
+.input-fake:hover{
+	top:-1px;
+	left: -1px;
+	box-shadow: 5px 5px 5px #4E4E4E;
+}
+.input-fake:active{
+	top:0;
+	left: 0;
+	box-shadow: 4px 4px 4px #4E4E4E;
+}
+.ui-input-f{
+	position: relative;
+	top:-50px;
+	height: 50px;
+	width: 130px;
+	opacity: 0;
+	cursor: pointer;
 }
 
 /*.panel end*/
