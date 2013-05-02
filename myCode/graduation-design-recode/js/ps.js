@@ -1,4 +1,4 @@
-
+﻿
 //以o开头，表示原始的
 //以n开头，表示当前的
 
@@ -185,7 +185,7 @@ var ps = (function() {
 					ida[count + 0] = r/1;
 					ida[count + 1] = g/1;
 					ida[count + 2] = b/1;
-					ida[count + 3] = 255;
+					
 					
 					//console.log(r + ',' + g + ',' + b);
 					count += 4;
