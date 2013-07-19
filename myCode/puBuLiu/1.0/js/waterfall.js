@@ -4,7 +4,7 @@ var Waterfall = (function() {
 		imgRoot = 'http://cued.xunlei.com/demos/publ/img/',	 //图片路径
 
 		imgIndex = 0,	//当前图片索引
-		perNum = 3,		//每次请求图片数
+		perNum = 9,		//每次请求图片数
 		totalImg = 160;		//图片总数
 
 
@@ -68,7 +68,8 @@ var Waterfall = (function() {
 				totalImg -= 1;
  			}
  		}
- 		var curCol = colShortest();
+ 		// var curCol = colShortest();
+ 		var curCol = 0;
  		for(var i = 0, len = newItem.length; i < len; i += 1) {
  			if(curCol >= colNum) {
  				curCol = 0;
