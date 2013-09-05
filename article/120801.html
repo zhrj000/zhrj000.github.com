@@ -6,6 +6,41 @@
 		<link rel="shortcut icon" href="../favicon.ico" /> 
 		<link rel="stylesheet" type="text/css" href="../styles/main.css" />
 		<link rel="stylesheet" type="text/css" href="../styles/demo.css" />
+		<style>
+			.import{
+				color:red;
+				position: absolute;
+				top:106px;
+				left:400px;
+				opacity:0;
+				z-index:8888;
+				-webkit-animation:importc 3000ms linear;
+				-moz-animation:importc 3000ms linear;
+				opacity:1;
+			}
+			@-webkit-keyframes importc{
+				0%{
+					opacity:0;
+				}
+				99%{
+					opacity:0;
+				}
+				100%{
+					opacity:1;
+				}
+			}
+			@-moz-keyframes importc{
+				0%{
+					opacity:0;
+				}
+				99%{
+					opacity:0;
+				}
+				100%{
+					opacity:1;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -87,6 +122,7 @@
 									<i></i>
 									<i></i>
 								</div>
+								<p class="import"><strong>YY、MM、QQ</strong><br />是[猪]^(* (oo))^/p>
 							</div>
 						</div>
 					</div>
